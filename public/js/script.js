@@ -11,14 +11,21 @@ function showComingSoon() {
 
 // Countdown Timer
 function startCountdown() {
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    
+    // Only run the 5-minute countdown if we're not on the join page
+    // and the elements exist
+    if (!minutesEl || !secondsEl || window.location.pathname === '/join') return;
+
     let timeLeft = 5 * 60; // 5 minutes in seconds
 
     const countdownTimer = setInterval(() => {
         const minutes = Math.floor(timeLeft / 60);
         const seconds = timeLeft % 60;
 
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
 
         if (timeLeft <= 0) {
             clearInterval(countdownTimer);
@@ -30,7 +37,10 @@ function startCountdown() {
 
 // Button click handler
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('cta-button').addEventListener('click', () => {
-        window.location.href = 'https://www.skool.com/vagus';
-    });
+    const ctaButton = document.getElementById('cta-button');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', () => {
+            window.location.href = 'https://www.skool.com/vagus';
+        });
+    }
 }); 

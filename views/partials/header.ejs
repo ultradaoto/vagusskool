@@ -1,36 +1,11 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= typeof title !== 'undefined' ? title : 'Vagus Skool' %></title>
-
-    <!-- Essential Open Graph Tags -->
-    <meta property="og:title" content="<%= typeof title !== 'undefined' ? title : 'Vagus Skool' %>">
-    <meta property="og:description" content="<%= typeof description !== 'undefined' ? description : 'Discover the healing power of vagus nerve stimulation' %>">
-    <meta property="og:image" content="<%= typeof imageUrl !== 'undefined' ? imageUrl : '/images/preview-image.jpg' %>">
-    <meta property="og:url" content="<%= typeof currentUrl !== 'undefined' ? currentUrl : 'https://vagusskool.com' %>">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Vagus Skool">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="<%= typeof title !== 'undefined' ? title : 'Vagus Skool' %>">
-    <meta name="twitter:description" content="<%= typeof description !== 'undefined' ? description : 'Discover the healing power of vagus nerve stimulation' %>">
-    <meta name="twitter:image" content="<%= typeof imageUrl !== 'undefined' ? imageUrl : '/images/preview-image.jpg' %>">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<header>
-    <nav>
-        <a href="/" class="logo">Vagus Skool</a>
-        <div class="nav-links">
-            <a href="/about" onmouseover="showComingSoon()">About</a>
-            <a href="/courses" onmouseover="showComingSoon()">Courses</a>
-            <a href="/testimonials" onmouseover="showComingSoon()">Testimonials</a>
-            <a href="/join">Join</a>
+<header class="bg-transparent py-4">
+    <nav class="max-w-[1200px] mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <a href="/" class="logo text-accent-purple no-underline text-2xl font-bold font-cormorant">Vagus Skool</a>
+        <div class="nav-links flex flex-wrap justify-center gap-4 md:gap-8">
+            <a href="/about" onmouseover="showComingSoon()" class="text-accent-purple no-underline transition-colors duration-300 hover:text-gold">About</a>
+            <a href="/courses" onmouseover="showComingSoon()" class="text-accent-purple no-underline transition-colors duration-300 hover:text-gold">Courses</a>
+            <a href="/testimonials" onmouseover="showComingSoon()" class="text-accent-purple no-underline transition-colors duration-300 hover:text-gold">Testimonials</a>
+            <a href="/join" class="text-accent-purple no-underline transition-colors duration-300 hover:text-gold">Join</a>
         </div>
     </nav>
-</header> 
+</header>
