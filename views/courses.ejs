@@ -1,93 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/header') %>
+<%- include('partials/head') %>
 <body>
+    <%- include('partials/header') %>
     <main>
-        <div class="container">
-            <header class="hero-header">
-                <h1 class="title">Our Courses</h1>
-                <p class="subtitle">Comprehensive Learning Paths for Vagus Nerve Mastery</p>
+        <div class="container-custom py-12 md:py-20">
+            <header class="text-center mb-16">
+                <h1 class="title font-cormorant text-5xl md:text-7xl text-accent-purple mb-4 font-medium">Our Courses</h1>
+                <p class="subtitle font-cormorant text-2xl md:text-3xl text-gold leading-tight">Comprehensive Learning Paths for Vagus Nerve Mastery</p>
             </header>
 
-            <div class="courses-grid">
-                <div class="course-card">
-                    <img src="/images/course01.png" alt="Vagus Nerve Stimulation" class="course-image">
-                    <div class="course-content">
-                        <h2 class="course-title">Vagus Nerve Stimulation</h2>
-                        <p class="course-description">Learn about the remarkable science behind how every-day humans can access the healing power of VNS, learn about the range of options, from breathing, meditation, and get a primer on Electrical and Ultrasound methods of stimulation</p>
-                        <a href="https://www.skool.com/vagus/classroom/4d7222e2?md=dac8a6895f51453581462981f4ee242d" class="course-button">Access the Vagus Nerve Course</a>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <div class="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="/images/course01.png" alt="Vagus Nerve Stimulation" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h2 class="font-cormorant text-2xl md:text-3xl text-accent-purple mb-4 font-medium">Vagus Nerve Stimulation</h2>
+                        <p class="text-dark-text leading-relaxed mb-6 flex-grow">Learn about the remarkable science behind how every-day humans can access the healing power of VNS, learn about the range of options, from breathing, meditation, and get a primer on Electrical and Ultrasound methods of stimulation</p>
+                        <a href="https://www.skool.com/vagus/classroom/4d7222e2?md=dac8a6895f51453581462981f4ee242d" class="golden-button text-center !py-3 !px-6 !text-base mt-auto">Access the Vagus Nerve Course</a>
                     </div>
                 </div>
 
-                <div class="course-card">
-                    <img src="/images/course02.png" alt="Electrical VNS" class="course-image">
-                    <div class="course-content">
-                        <h2 class="course-title">Electrical VNS</h2>
-                        <p class="course-description">Electrical Vagus Nerve Stimulation has become a remarkably widespread method of at-home stimulation of the Vagus Nerve, first as an implanted device, and in the last 5 years, as a popular handheld battery powered device.</p>
-                        <a href="https://www.skool.com/vagus/classroom/b01c369a?md=1992c515513f4ac28923f64288a07e6b" class="course-button">Learn about Electrical VNS</a>
+                <div class="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="/images/course02.png" alt="Electrical VNS" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h2 class="font-cormorant text-2xl md:text-3xl text-accent-purple mb-4 font-medium">Electrical VNS</h2>
+                        <p class="text-dark-text leading-relaxed mb-6 flex-grow">Electrical Vagus Nerve Stimulation has become a remarkably widespread method of at-home stimulation of the Vagus Nerve, first as an implanted device, and in the last 5 years, as a popular handheld battery powered device.</p>
+                        <a href="https://www.skool.com/vagus/classroom/b01c369a?md=1992c515513f4ac28923f64288a07e6b" class="golden-button text-center !py-3 !px-6 !text-base mt-auto">Learn about Electrical VNS</a>
                     </div>
                 </div>
 
-                <div class="course-card">
-                    <img src="/images/course03.png" alt="Ultrasound VNS" class="course-image">
-                    <div class="course-content">
-                        <h2 class="course-title">Ultrasound Vagus Nerve Stimulation</h2>
-                        <p class="course-description">Coming in more recently since 2017, and Sterling Cooley's rare discovery of the effectiveness of low-intensity Ultrasound on the Vagus Nerve, you will learn about readily available devices often times far more affordable, with less of the 'over-stimulating' effects of other methods.</p>
-                        <a href="https://www.skool.com/vagus/classroom/a6967013?md=84e451a267ad44d89153742cca5e3f3b" class="course-button">Learn about Ultrasound VNS</a>
+                <div class="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="/images/course03.png" alt="Ultrasound VNS" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h2 class="font-cormorant text-2xl md:text-3xl text-accent-purple mb-4 font-medium">Ultrasound VNS</h2>
+                        <p class="text-dark-text leading-relaxed mb-6 flex-grow">Coming in more recently since 2017, and Sterling Cooley's rare discovery of the effectiveness of low-intensity Ultrasound on the Vagus Nerve, you will learn about readily available devices often times far more affordable, with less of the 'over-stimulating' effects of other methods.</p>
+                        <a href="https://www.skool.com/vagus/classroom/a6967013?md=84e451a267ad44d89153742cca5e3f3b" class="golden-button text-center !py-3 !px-6 !text-base mt-auto">Learn about Ultrasound VNS</a>
                     </div>
                 </div>
 
-                <div class="course-card">
-                    <img src="/images/course04.png" alt="Advanced Breathing Techniques" class="course-image">
-                    <div class="course-content">
-                        <h2 class="course-title">Advanced Breathing Techniques</h2>
-                        <p class="course-description">Discover ancient and modern breathing practices specifically designed to activate the vagus nerve. From resonant breathing to advanced pranayama techniques, learn how conscious breathing can transform your nervous system.</p>
-                        <a href="https://www.skool.com/vagus/classroom/024e41a0?md=fd3a7e919c084380a86eb277c40f7300" class="course-button">Master Vagal Breathing</a>
+                <div class="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="/images/course04.png" alt="Advanced Breathing Techniques" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h2 class="font-cormorant text-2xl md:text-3xl text-accent-purple mb-4 font-medium">Advanced Breathing Techniques</h2>
+                        <p class="text-dark-text leading-relaxed mb-6 flex-grow">Discover ancient and modern breathing practices specifically designed to activate the vagus nerve. From resonant breathing to advanced pranayama techniques, learn how conscious breathing can transform your nervous system.</p>
+                        <a href="https://www.skool.com/vagus/classroom/024e41a0?md=fd3a7e919c084380a86eb277c40f7300" class="golden-button text-center !py-3 !px-6 !text-base mt-auto">Master Vagal Breathing</a>
                     </div>
                 </div>
 
-                <div class="course-card">
-                    <img src="/images/course05.png" alt="Vagal Theories & Research" class="course-image">
-                    <div class="course-content">
-                        <h2 class="course-title">Vagal Theories & Research</h2>
-                        <p class="course-description">Dive deep into the latest scientific research and theoretical frameworks around vagus nerve function. Understand polyvagal theory, neuroscience of vagal tone, and cutting-edge discoveries in the field.</p>
-                        <a href="https://www.skool.com/vagus/classroom/dad599f3?md=a8b1d26ede0540f58f6066868529a07c" class="course-button">Explore Vagal Science</a>
+                <div class="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="/images/course05.png" alt="Vagal Theories & Research" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h2 class="font-cormorant text-2xl md:text-3xl text-accent-purple mb-4 font-medium">Vagal Theories & Research</h2>
+                        <p class="text-dark-text leading-relaxed mb-6 flex-grow">Dive deep into the latest scientific research and theoretical frameworks around vagus nerve function. Understand polyvagal theory, neuroscience of vagal tone, and cutting-edge discoveries in the field.</p>
+                        <a href="https://www.skool.com/vagus/classroom/dad599f3?md=a8b1d26ede0540f58f6066868529a07c" class="golden-button text-center !py-3 !px-6 !text-base mt-auto">Explore Vagal Science</a>
                     </div>
                 </div>
 
-                <div class="course-card">
-                    <img src="/images/course06.png" alt="Healing Chronic Conditions" class="course-image">
-                    <div class="course-content">
-                        <h2 class="course-title">Resolving Chronic Illness</h2>
-                        <p class="course-description">Learn how vagus nerve optimization can help address chronic conditions. From inflammation to autoimmune conditions, discover protocols and approaches for using VNS as part of your healing journey.</p>
-                        <a href="https://www.skool.com/vagus/classroom/071ed33b?md=67db23f1ee374d05bea76ec22d3354fd" class="course-button">Begin Your Healing Journey</a>
+                <div class="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="/images/course06.png" alt="Healing Chronic Conditions" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h2 class="font-cormorant text-2xl md:text-3xl text-accent-purple mb-4 font-medium">Resolving Chronic Illness</h2>
+                        <p class="text-dark-text leading-relaxed mb-6 flex-grow">Learn how vagus nerve optimization can help address chronic conditions. From inflammation to autoimmune conditions, discover protocols and approaches for using VNS as part of your healing journey.</p>
+                        <a href="https://www.skool.com/vagus/classroom/071ed33b?md=67db23f1ee374d05bea76ec22d3354fd" class="golden-button text-center !py-3 !px-6 !text-base mt-auto">Begin Your Healing Journey</a>
                     </div>
                 </div>
 
-                <div class="course-card">
-                    <img src="/images/course07.png" alt="Nutrition for Vagal Vitality" class="course-image">
-                    <div class="course-content">
-                        <h2 class="course-title">Nutrition for Vagal Vitality</h2>
-                        <p class="course-description">Discover how food choices directly impact vagus nerve function and gut-brain communication. Learn about anti-inflammatory diets, gut-healing superfoods (like bone broth and fermented foods), and timing strategies to optimize digestion and vagal tone. Includes meal plans, recipes, and science-backed hacks to reduce bloating, boost mood, and create a "vagus-friendly" plate.</p>
-                        <a href="https://www.skool.com/vagus/classroom/e0e30f75?md=55ad8073ffa04f389747f353c753d5de" class="course-button">Nourish Your Nerve</a>
+                <div class="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="/images/course07.png" alt="Nutrition for Vagal Vitality" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h2 class="font-cormorant text-2xl md:text-3xl text-accent-purple mb-4 font-medium">Nutrition for Vagal Vitality</h2>
+                        <p class="text-dark-text leading-relaxed mb-6 flex-grow">Discover how food choices directly impact vagus nerve function and gut-brain communication. Learn about anti-inflammatory diets, gut-healing superfoods, and timing strategies to optimize digestion and vagal tone.</p>
+                        <a href="https://www.skool.com/vagus/classroom/e0e30f75?md=55ad8073ffa04f389747f353c753d5de" class="golden-button text-center !py-3 !px-6 !text-base mt-auto">Nourish Your Nerve</a>
                     </div>
                 </div>
 
-                <div class="course-card">
-                    <img src="/images/course08.png" alt="Movement & the Vagus Nerve" class="course-image">
-                    <div class="course-content">
-                        <h2 class="course-title">Movement & the Vagus Nerve</h2>
-                        <p class="course-description">Not all exercise is created equal! Explore how specific movements—like yoga flows, tai chi, and rhythmic cardio—stimulate the vagus nerve to reduce stress hormones and improve resilience. Includes guided routines for all fitness levels, plus how to avoid overtraining (a common vagus saboteur!). Transform workouts from draining to energizing with vagus-centric movement science.</p>
-                        <a href="https://www.skool.com/vagus/classroom/d63d0b7b?md=1bce73d42d134b618bc9274bb57e4cfc" class="course-button">Move with Purpose</a>
+                <div class="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="/images/course08.png" alt="Movement & the Vagus Nerve" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h2 class="font-cormorant text-2xl md:text-3xl text-accent-purple mb-4 font-medium">Movement & the Vagus Nerve</h2>
+                        <p class="text-dark-text leading-relaxed mb-6 flex-grow">Explore how specific movements—like yoga flows, tai chi, and rhythmic cardio—stimulate the vagus nerve to reduce stress hormones and improve resilience. Includes guided routines for all fitness levels.</p>
+                        <a href="https://www.skool.com/vagus/classroom/d63d0b7b?md=1bce73d42d134b618bc9274bb57e4cfc" class="golden-button text-center !py-3 !px-6 !text-base mt-auto">Move with Purpose</a>
                     </div>
                 </div>
 
-                <div class="course-card">
-                    <img src="/images/course09.png" alt="Mindset for Vagal Resilience" class="course-image">
-                    <div class="course-content">
-                        <h2 class="course-title">Mindset for Vagal Resilience</h2>
-                        <p class="course-description">Your thoughts shape your biology. Dive into evidence-based practices like gratitude journaling, vagus-focused visualization, and "neuroplasticity triggers" to rewire anxiety patterns and strengthen vagal tone. Learn to hack stress loops, cultivate emotional flexibility, and use the mind-body connection to create lasting nervous system harmony.</p>
-                        <a href="https://www.skool.com/vagus/classroom/11773e6a?md=023c4f2650b445ee8570e090da78253c" class="course-button">Think Like a Vagus Pro</a>
+                <div class="flex flex-col bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="/images/course09.png" alt="Mindset for Vagal Resilience" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h2 class="font-cormorant text-2xl md:text-3xl text-accent-purple mb-4 font-medium">Mindset for Vagal Resilience</h2>
+                        <p class="text-dark-text leading-relaxed mb-6 flex-grow">Your thoughts shape your biology. Dive into evidence-based practices like gratitude journaling, vagus-focused visualization, and "neuroplasticity triggers" to rewire anxiety patterns and strengthen vagal tone.</p>
+                        <a href="https://www.skool.com/vagus/classroom/11773e6a?md=023c4f2650b445ee8570e090da78253c" class="golden-button text-center !py-3 !px-6 !text-base mt-auto">Think Like a Vagus Pro</a>
                     </div>
                 </div>
             </div>

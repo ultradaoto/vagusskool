@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-montserrat bg-hero-gradient text-dark-text min-h-screen leading-relaxed;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1200px] mx-auto px-4 md:px-8;
+  }
+  
+  .golden-button {
+    @apply relative overflow-hidden bg-golden-gradient px-8 py-4 rounded-full text-dark-text text-lg font-medium transition-all duration-300 shadow-golden hover:-translate-y-0.5 hover:shadow-golden-hover;
+  }
+
+  .golden-button::after {
+    content: '';
+    @apply absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-45 animate-shimmer;
+  }
+}
+

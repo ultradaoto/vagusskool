@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/header') %>
+<%- include('partials/head') %>
 <body>
+    <%- include('partials/header') %>
     <main>
-        <div class="container">
-            <header class="hero-header">
-                <h1 class="title">About Us</h1>
-                <p class="subtitle">Our Mission & Vision</p>
+        <div class="container-custom py-12 md:py-20">
+            <header class="text-center mb-16">
+                <h1 class="title font-cormorant text-5xl md:text-7xl text-accent-purple mb-4 font-medium">About Us</h1>
+                <p class="subtitle font-cormorant text-2xl md:text-3xl text-gold leading-tight">Our Mission & Vision</p>
             </header>
 
-            <section class="about-content">
-                <div class="about-text">
+            <section class="max-w-[800px] mx-auto">
+                <div class="space-y-8 mb-16 text-lg md:text-xl leading-relaxed">
                     <p>Vagus Skool is all about helping people easily discover in a clear and easy way, a straight to the point method of stimulating and healing their Vagus Nerve system.</p>
                     
                     <p>We have seen some of the most incredible transformations from vagus nerve stimulation over the years, and we want to make it freely available to all, now on the world's best educational platform, Skool.com/vagus.</p>
                     
                     <p>To all those who want to share this with friends and family, and give them zero excuses to say "ohh, too complicated, or whatever" that now, it's as easy as a Skool Group, and it doesn't get easier, nor as fun, as Skool.</p>
                     
-                    <p>Please check out some of the incredible transformative stories on our <a href="/testimonials" class="testimonial-link">testimonials page</a> here.</p>
+                    <p>Please check out some of the incredible transformative stories on our <a href="/testimonials" class="text-accent-purple font-medium underline decoration-accent-purple/30 underline-offset-4 transition-colors hover:text-gold hover:decoration-gold">testimonials page</a> here.</p>
                 </div>
 
-                <div class="cta-container">
-                    <button id="cta-button" class="golden-button">
+                <div class="text-center">
+                    <button id="cta-button" class="golden-button w-full md:w-auto mb-6">
                         Join Our Community Now
                     </button>
-                    <p class="offer-details">Experience the power of Vagus Nerve healing today</p>
+                    <p class="text-accent-purple text-sm md:text-base opacity-90">Experience the power of Vagus Nerve healing today</p>
                 </div>
             </section>
         </div>

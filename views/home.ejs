@@ -1,46 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-
-    <!-- Essential Open Graph Tags -->
-    <meta property="og:title" content="<%= title %>">
-    <meta property="og:description" content="<%= description %>">
-    <meta property="og:image" content="<%= imageUrl %>">
-    <meta property="og:url" content="<%= currentUrl %>">
-    <meta property="og:type" content="website">
-
-    <!-- Additional recommended Open Graph Tags -->
-    <meta property="og:site_name" content="Vagus Skool">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Twitter Card Tags (Optional but recommended) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="<%= title %>">
-    <meta name="twitter:description" content="<%= description %>">
-    <meta name="twitter:image" content="<%= imageUrl %>">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<%- include('partials/header') %>
+<%- include('partials/head') %>
 <body>
+    <%- include('partials/header') %>
     <main>
-        <div class="container">
-            <header class="hero-header">
-                <h1 class="title">Vagus Skool</h1>
-                <p class="subtitle">Discover the Ancient Wisdom of Ultra Breath</p>
+        <div class="container-custom py-8 md:py-16">
+            <header class="text-center mb-12 md:mb-16">
+                <h1 class="title font-cormorant text-5xl md:text-7xl text-accent-purple mb-4 font-medium">Vagus Skool</h1>
+                <p class="subtitle font-cormorant text-2xl md:text-3xl text-gold leading-tight">Discover the Ancient Wisdom of Ultra Breath</p>
             </header>
 
-            <div class="video-container">
-                <div class="video-wrapper">
+            <div class="max-w-[800px] mx-auto mb-12">
+                <div class="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden shadow-2xl">
                     <iframe 
-                        width="560" 
-                        height="315" 
+                        class="absolute top-0 left-0 w-full h-full"
                         src="https://www.youtube.com/embed/kozJJDl8nJ0?si=vJKEXayc3p_hNMx1" 
                         title="YouTube video player" 
                         frameborder="0" 
@@ -51,36 +24,36 @@
                 </div>
             </div>
 
-            <section class="description">
-                <p>Experience the extraordinary power of Ultra Breath - a revolutionary practice combining ultrasound-enhanced Vagus Nerve stimulation with ancient Tummo breathing techniques.</p>
+            <section class="text-center max-w-[800px] mx-auto mb-12 md:mb-16">
+                <p class="text-lg md:text-xl leading-relaxed mb-8">Experience the extraordinary power of Ultra Breath - a revolutionary practice combining ultrasound-enhanced Vagus Nerve stimulation with ancient Tummo breathing techniques.</p>
                 
-                <div class="benefits">
-                    <p>✧ Master the 30-breath technique</p>
-                    <p>✧ Activate your Vagus Nerve</p>
-                    <p>✧ Release natural acetylcholine</p>
-                    <p>✧ Access deeper states of consciousness</p>
+                <div class="grid gap-4 text-accent-purple">
+                    <p class="text-lg">✧ Master the 30-breath technique</p>
+                    <p class="text-lg">✧ Activate your Vagus Nerve</p>
+                    <p class="text-lg">✧ Release natural acetylcholine</p>
+                    <p class="text-lg">✧ Access deeper states of consciousness</p>
                 </div>
             </section>
 
-            <div class="countdown-container">
-                <p>Special Offer Ends In:</p>
-                <div id="countdown">
-                    <div class="time-segment">
-                        <span id="minutes">05</span>
-                        <span class="label">Minutes</span>
+            <div class="text-center mb-12 md:mb-16">
+                <p class="text-lg mb-4">Special Offer Ends In:</p>
+                <div id="countdown" class="flex justify-center gap-6 md:gap-8">
+                    <div class="flex flex-col items-center">
+                        <span id="minutes" class="text-4xl md:text-5xl font-bold text-accent-purple">05</span>
+                        <span class="text-sm uppercase tracking-wider opacity-70">Minutes</span>
                     </div>
-                    <div class="time-segment">
-                        <span id="seconds">00</span>
-                        <span class="label">Seconds</span>
+                    <div class="flex flex-col items-center">
+                        <span id="seconds" class="text-4xl md:text-5xl font-bold text-accent-purple">00</span>
+                        <span class="text-sm uppercase tracking-wider opacity-70">Seconds</span>
                     </div>
                 </div>
             </div>
 
-            <div class="cta-container">
-                <button id="cta-button" class="golden-button">
+            <div class="text-center">
+                <button id="cta-button" class="golden-button w-full md:w-auto mb-6">
                     Get Instant Free Access to Vagus Skool Now
                 </button>
-                <p class="offer-details">Join now and receive immediate access to 9 transformative modules</p>
+                <p class="text-accent-purple text-sm md:text-base opacity-90">Join now and receive immediate access to 9 transformative modules</p>
             </div>
         </div>
     </main>

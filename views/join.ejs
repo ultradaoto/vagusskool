@@ -1,87 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/header') %>
+<%- include('partials/head') %>
 <body>
+    <%- include('partials/header') %>
     <main>
-        <div class="container">
-            <header class="hero-header">
-                <h1 class="title">Vagus Nerve Live Workshop!</h1>
-                <p class="subtitle">Join Us for a Transformative Experience</p>
+        <div class="container-custom py-12 md:py-20">
+            <header class="text-center mb-16">
+                <h1 class="title font-cormorant text-5xl md:text-7xl text-accent-purple mb-4 font-medium">Vagus Nerve Live Workshop!</h1>
+                <p class="subtitle font-cormorant text-2xl md:text-3xl text-gold leading-tight">Join Us for a Transformative Experience</p>
             </header>
 
-            <section class="description">
-                <p>Join the Vagus Skool for our First Ever Live Vagus Nerve Stimulation Workshop!
-                We will be in a Zoom room, and the link vagusskool.com/join will give you ability to click the Join button, and display a proper countdown to when we start. Bring your VNS tools!!</p>
+            <section class="max-w-[800px] mx-auto text-center mb-12">
+                <p class="text-lg md:text-xl leading-relaxed mb-8">Join the Vagus Skool for our Live Vagus Nerve Stimulation Workshops! We host regular interactive sessions to help you master these transformative techniques.</p>
+                <p class="text-lg md:text-xl leading-relaxed font-medium text-accent-purple">We would love to have you join us live! Please check our community calendar below to see all upcoming workshop dates and times.</p>
             </section>
 
-            <div class="workshop-details">
-                <p class="date-time">Saturday, February 8th, 2025</p>
-                <p class="time-zone">11:00 AM - 12:30 PM Pacific Time (Los Angeles)</p>
-            </div>
-
-            <div class="countdown-container">
-                <p>Workshop Starts In:</p>
-                <div id="countdown">
-                    <div class="time-segment">
-                        <span id="days">00</span>
-                        <span class="label">Days</span>
-                    </div>
-                    <div class="time-segment">
-                        <span id="hours">00</span>
-                        <span class="label">Hours</span>
-                    </div>
-                    <div class="time-segment">
-                        <span id="minutes">00</span>
-                        <span class="label">Minutes</span>
-                    </div>
-                    <div class="time-segment">
-                        <span id="seconds">00</span>
-                        <span class="label">Seconds</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-container">
-                <button id="zoom-button" class="golden-button">
-                    Join the Zoom Room Now
+            <div class="text-center mb-16 bg-white/30 backdrop-blur-sm p-10 rounded-3xl border border-accent-purple/10 max-w-2xl mx-auto shadow-sm">
+                <h2 class="font-cormorant text-3xl md:text-4xl text-accent-purple font-medium mb-4">Stay Connected</h2>
+                <p class="text-lg text-dark-text opacity-90 mb-8">All live events, workshops, and community calls are listed on our official Skool calendar. Bring your VNS tools and your questions!</p>
+                
+                <button id="calendar-button" class="golden-button w-full md:w-auto">
+                    View Workshop Calendar
                 </button>
-                <p class="offer-details">Get ready with your VNS tools for an interactive session!</p>
+            </div>
+
+            <div class="text-center">
+                <p class="text-accent-purple text-sm md:text-base opacity-90">Join our growing community and start your healing journey today.</p>
             </div>
         </div>
     </main>
     <%- include('partials/footer') %>
 
     <script>
-        // Set the date we're counting down to (February 8th, 2025 at 11:00 AM PT)
-        const workshopDate = new Date('2025-02-08T11:00:00-08:00').getTime();
-
-        // Update the countdown every second
-        const countdownTimer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = workshopDate - now;
-
-            // Time calculations
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-            // If the countdown is finished, redirect to Zoom
-            if (distance < 0) {
-                clearInterval(countdownTimer);
-                window.location.href = 'https://us06web.zoom.us/j/3351790143?omn=84736320786';
-            }
-        }, 1000);
-
-        // Zoom button click handler
-        document.getElementById('zoom-button').addEventListener('click', () => {
-            window.location.href = 'https://us06web.zoom.us/j/3351790143?omn=84736320786';
+        // Calendar button click handler
+        document.getElementById('calendar-button').addEventListener('click', () => {
+            window.location.href = 'https://www.skool.com/vagus/calendar';
         });
     </script>
 </body>

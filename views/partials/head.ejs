@@ -1,0 +1,26 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'Vagus Skool' %></title>
+
+    <!-- Essential Open Graph Tags -->
+    <meta property="og:title" content="<%= typeof title !== 'undefined' ? title : 'Vagus Skool' %>">
+    <meta property="og:description" content="<%= typeof description !== 'undefined' ? description : 'Discover the healing power of vagus nerve stimulation' %>">
+    <meta property="og:image" content="<%= typeof imageUrl !== 'undefined' ? imageUrl : '/images/preview-image.jpg' %>">
+    <meta property="og:url" content="<%= typeof currentUrl !== 'undefined' ? currentUrl : 'https://vagusskool.com' %>">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vagus Skool">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= typeof title !== 'undefined' ? title : 'Vagus Skool' %>">
+    <meta name="twitter:description" content="<%= typeof description !== 'undefined' ? description : 'Discover the healing power of vagus nerve stimulation' %>">
+    <meta name="twitter:image" content="<%= typeof imageUrl !== 'undefined' ? imageUrl : '/images/preview-image.jpg' %>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
