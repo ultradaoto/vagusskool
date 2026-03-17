@@ -7,12 +7,20 @@
         <div class="container-custom py-8 md:py-16">
             <article class="max-w-3xl mx-auto">
                 <header class="mb-8 md:mb-12">
+                    <% if (post.featured_image) { %>
+                        <div class="mb-8 rounded-2xl overflow-hidden">
+                            <img src="<%= post.featured_image %>" alt="<%= post.title %>" class="w-full h-auto object-cover">
+                        </div>
+                    <% } %>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <% post.tags.forEach(tag => { %>
+                        <% (post.tags || []).forEach(tag => { %>
                             <a href="/blog/tag/<%= tag %>" class="text-sm px-3 py-1 bg-gold/20 text-accent-purple rounded-full hover:bg-gold/40 transition-colors"><%= tag %></a>
                         <% }) %>
                     </div>
                     <h1 class="font-cormorant text-4xl md:text-5xl text-accent-purple mb-4 font-medium leading-tight"><%= post.title %></h1>
+                    <% if (post.subtitle) { %>
+                        <p class="font-cormorant text-xl text-gray-600 mb-4"><%= post.subtitle %></p>
+                    <% } %>
                     <div class="flex items-center gap-4 text-gray-500 text-sm md:text-base">
                         <span>By <strong class="text-accent-purple"><%= post.author %></strong></span>
                         <span>&bull;</span>
@@ -27,26 +35,6 @@
                 <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-12">
                     <%- post.content %>
                 </div>
-
-                <% if (post.socialLinks && (post.socialLinks.twitter || post.socialLinks.youtube)) { %>
-                <div class="border-t pt-6 mb-12">
-                    <p class="text-sm text-gray-500 mb-3">Connect with us:</p>
-                    <div class="flex gap-4">
-                        <% if (post.socialLinks.twitter) { %>
-                            <a href="<%= post.socialLinks.twitter %>" target="_blank" rel="noopener" class="text-accent-purple hover:text-gold transition-colors flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                                <span>Twitter</span>
-                            </a>
-                        <% } %>
-                        <% if (post.socialLinks.youtube) { %>
-                            <a href="<%= post.socialLinks.youtube %>" target="_blank" rel="noopener" class="text-accent-purple hover:text-gold transition-colors flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                                <span>YouTube</span>
-                            </a>
-                        <% } %>
-                    </div>
-                </div>
-                <% } %>
 
                 <div class="border-t pt-8">
                     <a href="/blog" class="text-accent-purple hover:text-gold transition-colors flex items-center gap-2">
@@ -64,7 +52,7 @@
                         <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                             <div class="p-5">
                                 <div class="flex flex-wrap gap-1 mb-2">
-                                    <% related.tags.slice(0, 2).forEach(tag => { %>
+                                    <% (related.tags || []).slice(0, 2).forEach(tag => { %>
                                         <span class="text-xs px-2 py-0.5 bg-gold/20 text-accent-purple rounded-full"><%= tag %></span>
                                     <% }) %>
                                 </div>

@@ -4,16 +4,27 @@
 <body>
     <%- include('partials/header') %>
     <main>
-        <div class="container-custom py-12 md:py-20">
-            <header class="text-center mb-16">
-                <h1 class="title font-cormorant text-5xl md:text-7xl text-accent-purple mb-4 font-medium">Success Stories</h1>
-                <p class="subtitle font-cormorant text-2xl md:text-3xl text-gold leading-tight">Transformative Experiences from Our Community</p>
-            </header>
+        <div class="container-custom py-10 md:py-16">
+            <section class="style-shell px-6 py-8 md:px-10 md:py-12">
+                <div class="pointer-events-none absolute inset-0">
+                    <div class="absolute left-[-2rem] top-10 h-48 w-48 rounded-full bg-accent-purple/12 blur-3xl"></div>
+                    <div class="absolute bottom-[-3rem] right-[-2rem] h-56 w-56 rounded-full bg-gold/20 blur-3xl"></div>
+                </div>
+                <header class="relative z-10 text-center">
+                    <span class="style-kicker mb-6">Stories from the community</span>
+                    <h1 class="title font-cormorant text-5xl md:text-7xl text-accent-purple mb-4 font-medium">Success Stories</h1>
+                    <p class="subtitle font-cormorant text-2xl md:text-3xl text-gold leading-tight">Transformative Experiences from Our Community</p>
+                    <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-dark-text/80 md:text-xl">
+                        Real voices, real outcomes, and a calmer showcase for the people who have experienced meaningful change through these practices.
+                    </p>
+                </header>
+            </section>
 
-            <section class="mb-20">
+            <section class="mt-8 section-shell">
                 <h2 class="font-cormorant text-3xl md:text-4xl text-accent-purple text-center mb-10 font-medium">Video Testimonials</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden shadow-lg border-2 border-accent-purple/10">
+                    <div class="video-shell p-3">
+                        <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-[1.25rem]">
                         <iframe 
                             class="absolute top-0 left-0 w-full h-full"
                             src="https://www.youtube.com/embed/sVPk0MXzuzM?si=vJKEXayc3p_hNMx1" 
@@ -23,8 +34,10 @@
                             referrerpolicy="strict-origin-when-cross-origin" 
                             allowfullscreen>
                         </iframe>
+                        </div>
                     </div>
-                    <div class="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden shadow-lg border-2 border-accent-purple/10">
+                    <div class="video-shell p-3">
+                        <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-[1.25rem]">
                         <iframe 
                             class="absolute top-0 left-0 w-full h-full"
                             src="https://www.youtube.com/embed/TIyYyf2ruNY?si=vJKEXayc3p_hNMx1" 
@@ -34,8 +47,10 @@
                             referrerpolicy="strict-origin-when-cross-origin" 
                             allowfullscreen>
                         </iframe>
+                        </div>
                     </div>
-                    <div class="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden shadow-lg border-2 border-accent-purple/10">
+                    <div class="video-shell p-3">
+                        <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-[1.25rem]">
                         <iframe 
                             class="absolute top-0 left-0 w-full h-full"
                             src="https://www.youtube.com/embed/YfPAuGZRUnA?si=vJKEXayc3p_hNMx1" 
@@ -45,24 +60,25 @@
                             referrerpolicy="strict-origin-when-cross-origin" 
                             allowfullscreen>
                         </iframe>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-20">
+            <section class="mt-8 section-shell">
                 <h2 class="font-cormorant text-3xl md:text-4xl text-accent-purple text-center mb-10 font-medium">Written Testimonials</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-                    <div class="bg-white/50 backdrop-blur-sm p-8 rounded-2xl shadow-md text-center border border-accent-purple/5 transition-transform duration-300 hover:-translate-y-2">
+                    <div class="style-panel text-center">
                         <img src="/images/testimonial-avatar01.png" alt="Karen's avatar" class="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-accent-purple p-1">
                         <p class="text-dark-text italic text-lg leading-relaxed mb-6">"The Ultra Breath technique changed my life completely. After just two weeks of practice, I noticed significant improvements in my sleep quality and overall stress levels. It's amazing how something so simple can be so powerful!"</p>
                         <p class="font-cormorant text-xl text-accent-purple font-medium">- Karen</p>
                     </div>
-                    <div class="bg-white/50 backdrop-blur-sm p-8 rounded-2xl shadow-md text-center border border-accent-purple/5 transition-transform duration-300 hover:-translate-y-2">
+                    <div class="style-panel text-center">
                         <img src="/images/testimonial-avatar02.png" alt="Alex's avatar" class="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-accent-purple p-1">
                         <p class="text-dark-text italic text-lg leading-relaxed mb-6">"I was skeptical at first, but the results speak for themselves. My anxiety levels have decreased dramatically, and I feel more centered and focused throughout the day. This program is truly transformative."</p>
                         <p class="font-cormorant text-xl text-accent-purple font-medium">- Alex</p>
                     </div>
-                    <div class="bg-white/50 backdrop-blur-sm p-8 rounded-2xl shadow-md text-center border border-accent-purple/5 transition-transform duration-300 hover:-translate-y-2">
+                    <div class="style-panel text-center">
                         <img src="/images/testimonial-avatar03.png" alt="Betsy's avatar" class="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-accent-purple p-1">
                         <p class="text-dark-text italic text-lg leading-relaxed mb-6">"The community support in Vagus Skool is incredible. Not only did I learn the techniques, but I also found a group of like-minded people who support each other's healing journey. It's been an amazing experience!"</p>
                         <p class="font-cormorant text-xl text-accent-purple font-medium">- Betsy</p>
@@ -70,8 +86,13 @@
                 </div>
             </section>
 
-            <div class="text-center">
-                <button id="cta-button" class="golden-button w-full md:w-auto mb-6">
+            <div class="mt-8 section-shell text-center">
+                <p class="section-label">Join the next story</p>
+                <h2 class="mt-4 font-cormorant text-4xl text-accent-purple md:text-5xl">Step into the same supportive learning environment.</h2>
+                <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-dark-text/80">
+                    The community is where knowledge becomes momentum, and where steady practice starts to create visible change.
+                </p>
+                <button id="cta-button" class="golden-button w-full md:w-auto mt-8 mb-4">
                     Start Your Transformation Today
                 </button>
                 <p class="text-accent-purple text-sm md:text-base opacity-90">Join our growing community of transformed lives</p>

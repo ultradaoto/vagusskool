@@ -4,29 +4,55 @@
 <body>
     <%- include('partials/header') %>
     <main>
-        <div class="container-custom py-12 md:py-20">
-            <header class="text-center mb-16">
-                <h1 class="title font-cormorant text-5xl md:text-7xl text-accent-purple mb-4 font-medium">About Us</h1>
-                <p class="subtitle font-cormorant text-2xl md:text-3xl text-gold leading-tight">Our Mission & Vision</p>
-            </header>
-
-            <section class="max-w-[800px] mx-auto">
-                <div class="space-y-8 mb-16 text-lg md:text-xl leading-relaxed">
-                    <p>Vagus Skool is all about helping people easily discover in a clear and easy way, a straight to the point method of stimulating and healing their Vagus Nerve system.</p>
-                    
-                    <p>We have seen some of the most incredible transformations from vagus nerve stimulation over the years, and we want to make it freely available to all, now on the world's best educational platform, Skool.com/vagus.</p>
-                    
-                    <p>To all those who want to share this with friends and family, and give them zero excuses to say "ohh, too complicated, or whatever" that now, it's as easy as a Skool Group, and it doesn't get easier, nor as fun, as Skool.</p>
-                    
-                    <p>Please check out some of the incredible transformative stories on our <a href="/testimonials" class="text-accent-purple font-medium underline decoration-accent-purple/30 underline-offset-4 transition-colors hover:text-gold hover:decoration-gold">testimonials page</a> here.</p>
+        <div class="container-custom py-10 md:py-16">
+            <section class="style-shell px-6 py-8 md:px-10 md:py-12">
+                <div class="pointer-events-none absolute inset-0">
+                    <div class="absolute left-[-2rem] top-12 h-48 w-48 rounded-full bg-accent-purple/12 blur-3xl"></div>
+                    <div class="absolute bottom-[-3rem] right-[-2rem] h-56 w-56 rounded-full bg-gold/20 blur-3xl"></div>
                 </div>
 
-                <div class="text-center">
-                    <button id="cta-button" class="golden-button w-full md:w-auto mb-6">
-                        Join Our Community Now
-                    </button>
-                    <p class="text-accent-purple text-sm md:text-base opacity-90">Experience the power of Vagus Nerve healing today</p>
+                <div class="relative z-10 grid gap-8 lg:grid-cols-[1fr_0.95fr]">
+                    <div>
+                        <span class="style-kicker mb-6">Our mission and vision</span>
+                        <h1 class="title font-cormorant text-5xl text-accent-purple font-medium leading-[0.95] md:text-7xl">About Us</h1>
+                        <p class="subtitle mt-4 font-cormorant text-2xl text-gold leading-tight md:text-3xl">A clearer path into vagus nerve healing</p>
+                        <div class="mt-6 space-y-6 text-lg leading-relaxed text-dark-text/85 md:text-xl">
+                            <p>Vagus Skool is all about helping people easily discover, in a clear and direct way, a straight-to-the-point method of stimulating and healing their vagus nerve system.</p>
+                            <p>We have seen some of the most incredible transformations from vagus nerve stimulation over the years, and we want to make it freely available to all through the world's best educational platform at Skool.com/vagus.</p>
+                            <p>We want this work to feel easy to share with friends and family, with less friction, less confusion, and more immediate access to practices that can actually help.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-4">
+                        <div class="style-panel">
+                            <p class="section-label">Why it matters</p>
+                            <p class="mt-4 text-lg leading-relaxed text-dark-text/80">Nervous system healing should feel accessible, welcoming, and practical rather than complex or difficult to begin.</p>
+                        </div>
+                        <div class="style-panel">
+                            <p class="section-label">What makes it different</p>
+                            <p class="mt-4 text-lg leading-relaxed text-dark-text/80">The content is built to reduce overwhelm, make practice easier, and support real-world consistency through community and guided learning.</p>
+                        </div>
+                        <div class="style-panel bg-accent-purple text-soft-white">
+                            <p class="section-label text-white/65">Keep exploring</p>
+                            <p class="mt-4 text-lg leading-relaxed text-white/85">
+                                Please check out some of the incredible transformative stories on our
+                                <a href="/testimonials" class="font-medium text-gold underline decoration-gold/40 underline-offset-4 transition-colors hover:text-white">testimonials page</a>.
+                            </p>
+                        </div>
+                    </div>
                 </div>
+            </section>
+
+            <section class="mt-8 section-shell text-center">
+                <p class="section-label">Ready to begin</p>
+                <h2 class="mt-4 font-cormorant text-4xl text-accent-purple md:text-5xl">Join a community centered on healing, practice, and momentum.</h2>
+                <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-dark-text/80">
+                    Step into a calmer digital space designed to help you learn, practice, and stay connected to the transformative potential of vagus nerve stimulation.
+                </p>
+                <button id="cta-button" class="golden-button mt-8 w-full md:w-auto">
+                    Join Our Community Now
+                </button>
+                <p class="mt-4 text-sm text-accent-purple/85 md:text-base">Experience the power of vagus nerve healing today.</p>
             </section>
         </div>
     </main>

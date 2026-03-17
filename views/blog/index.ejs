@@ -31,9 +31,14 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <% posts.forEach(post => { %>
                         <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                            <% if (post.featured_image) { %>
+                                <a href="/blog/<%= post.slug %>" class="block aspect-video overflow-hidden">
+                                    <img src="<%= post.featured_image %>" alt="<%= post.title %>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                                </a>
+                            <% } %>
                             <div class="p-6 flex-1 flex flex-col">
                                 <div class="flex flex-wrap gap-2 mb-3">
-                                    <% post.tags.slice(0, 3).forEach(tag => { %>
+                                    <% (post.tags || []).slice(0, 3).forEach(tag => { %>
                                         <span class="text-xs px-2 py-1 bg-gold/20 text-accent-purple rounded-full"><%= tag %></span>
                                     <% }) %>
                                 </div>

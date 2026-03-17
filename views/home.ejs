@@ -4,57 +4,100 @@
 <body>
     <%- include('partials/header') %>
     <main>
-        <div class="container-custom py-8 md:py-16">
-            <header class="text-center mb-12 md:mb-16">
-                <h1 class="title font-cormorant text-5xl md:text-7xl text-accent-purple mb-4 font-medium">Vagus Skool</h1>
-                <p class="subtitle font-cormorant text-2xl md:text-3xl text-gold leading-tight">Discover the Ancient Wisdom of Ultra Breath</p>
-            </header>
-
-            <div class="max-w-[800px] mx-auto mb-12">
-                <div class="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden shadow-2xl">
-                    <iframe 
-                        class="absolute top-0 left-0 w-full h-full"
-                        src="https://www.youtube.com/embed/kozJJDl8nJ0?si=vJKEXayc3p_hNMx1" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
-                    </iframe>
+        <div class="container-custom py-10 md:py-16">
+            <section class="style-shell px-6 py-8 md:px-10 md:py-12">
+                <div class="pointer-events-none absolute inset-0">
+                    <div class="absolute right-[-3rem] top-[-2rem] h-40 w-40 rounded-full bg-gold/20 blur-3xl"></div>
+                    <div class="absolute bottom-[-3rem] left-[-2rem] h-52 w-52 rounded-full bg-accent-purple/15 blur-3xl"></div>
                 </div>
-            </div>
 
-            <section class="text-center max-w-[800px] mx-auto mb-12 md:mb-16">
-                <p class="text-lg md:text-xl leading-relaxed mb-8">Experience the extraordinary power of Ultra Breath - a revolutionary practice combining ultrasound-enhanced Vagus Nerve stimulation with ancient Tummo breathing techniques.</p>
-                
-                <div class="grid gap-4 text-accent-purple">
-                    <p class="text-lg">✧ Master the 30-breath technique</p>
-                    <p class="text-lg">✧ Activate your Vagus Nerve</p>
-                    <p class="text-lg">✧ Release natural acetylcholine</p>
-                    <p class="text-lg">✧ Access deeper states of consciousness</p>
+                <div class="relative z-10 grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+                    <div>
+                        <span class="style-kicker mb-6">Ancient wisdom, modern delivery</span>
+                        <h1 class="title font-cormorant text-5xl text-accent-purple font-medium leading-[0.92] md:text-7xl">Vagus Skool</h1>
+                        <p class="subtitle mt-4 font-cormorant text-2xl text-gold leading-tight md:text-3xl">Discover the Ancient Wisdom of Ultra Breath</p>
+                        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text/85 md:text-xl">
+                            Experience the extraordinary power of Ultra Breath, a revolutionary practice combining ultrasound-enhanced vagus nerve stimulation with ancient Tummo breathing techniques.
+                        </p>
+
+                        <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                            <div class="style-metric">
+                                <p class="section-label">Practice</p>
+                                <p class="mt-3 text-lg text-dark-text/85">Master the 30-breath technique with a calmer, more focused daily ritual.</p>
+                            </div>
+                            <div class="style-metric">
+                                <p class="section-label">Outcome</p>
+                                <p class="mt-3 text-lg text-dark-text/85">Activate your vagus nerve and access deeper states of regulation.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 flex flex-wrap gap-3">
+                            <span class="style-chip">Release natural acetylcholine</span>
+                            <span class="style-chip">Build nervous system resilience</span>
+                            <span class="style-chip">Learn at your own pace</span>
+                        </div>
+                    </div>
+
+                    <div class="video-shell p-3">
+                        <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-[1.25rem] shadow-2xl">
+                            <iframe
+                                class="absolute top-0 left-0 h-full w-full"
+                                src="https://www.youtube.com/embed/kozJJDl8nJ0?si=vJKEXayc3p_hNMx1"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <div class="text-center mb-12 md:mb-16">
-                <p class="text-lg mb-4">Special Offer Ends In:</p>
-                <div id="countdown" class="flex justify-center gap-6 md:gap-8">
-                    <div class="flex flex-col items-center">
-                        <span id="minutes" class="text-4xl md:text-5xl font-bold text-accent-purple">05</span>
-                        <span class="text-sm uppercase tracking-wider opacity-70">Minutes</span>
+            <section class="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+                <article class="section-shell">
+                    <p class="section-label">What you will experience</p>
+                    <div class="mt-6 grid gap-4 md:grid-cols-2">
+                        <div class="style-panel">
+                            <h2 class="font-cormorant text-3xl text-accent-purple">Guided regulation</h2>
+                            <p class="mt-3 text-dark-text/80">Learn a simple, direct method for calming the body and training your system toward safety.</p>
+                        </div>
+                        <div class="style-panel">
+                            <h2 class="font-cormorant text-3xl text-accent-purple">Embodied practice</h2>
+                            <p class="mt-3 text-dark-text/80">Turn theory into breathwork, ritual, and repeatable daily action you can actually sustain.</p>
+                        </div>
+                        <div class="style-panel">
+                            <h2 class="font-cormorant text-3xl text-accent-purple">Deeper awareness</h2>
+                            <p class="mt-3 text-dark-text/80">Use modern vagus nerve concepts to better understand stress, energy, and inner balance.</p>
+                        </div>
+                        <div class="style-panel">
+                            <h2 class="font-cormorant text-3xl text-accent-purple">Community momentum</h2>
+                            <p class="mt-3 text-dark-text/80">Move with a group of people exploring similar healing, breathwork, and nervous system practices.</p>
+                        </div>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <span id="seconds" class="text-4xl md:text-5xl font-bold text-accent-purple">00</span>
-                        <span class="text-sm uppercase tracking-wider opacity-70">Seconds</span>
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="text-center">
-                <button id="cta-button" class="golden-button w-full md:w-auto mb-6">
-                    Get Instant Free Access to Vagus Skool Now
-                </button>
-                <p class="text-accent-purple text-sm md:text-base opacity-90">Join now and receive immediate access to 9 transformative modules</p>
-            </div>
+                <aside class="section-shell">
+                    <p class="section-label">Live offer</p>
+                    <div class="mt-5 rounded-[1.75rem] bg-accent-purple px-6 py-8 text-center text-soft-white shadow-xl">
+                        <p class="text-sm uppercase tracking-[0.28em] text-white/65">Special offer ends in</p>
+                        <div id="countdown" class="mt-6 flex justify-center gap-6 md:gap-8">
+                            <div class="flex flex-col items-center">
+                                <span id="minutes" class="text-4xl font-bold text-gold md:text-5xl">05</span>
+                                <span class="text-sm uppercase tracking-wider text-white/70">Minutes</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <span id="seconds" class="text-4xl font-bold text-gold md:text-5xl">00</span>
+                                <span class="text-sm uppercase tracking-wider text-white/70">Seconds</span>
+                            </div>
+                        </div>
+                        <button id="cta-button" class="golden-button mt-8 w-full">
+                            Get Instant Free Access to Vagus Skool Now
+                        </button>
+                        <p class="mt-4 text-sm text-white/80">Join now and receive immediate access to 9 transformative modules.</p>
+                    </div>
+                </aside>
+            </section>
         </div>
     </main>
     <%- include('partials/footer') %>

@@ -14,10 +14,12 @@ app.use(express.json());
 const homeRoutes = require('./routes/homeRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const blogAdminRoutes = require('./routes/blogAdminRoutes');
+const blogApi = require('./routes/api/blogApi');
 
 app.use('/', homeRoutes);
 app.use('/', blogRoutes);
 app.use('/', blogAdminRoutes);
+app.use('/api/blog', blogApi);
 
 const PORT = process.env.PORT || 3100;
 app.listen(PORT, () => {

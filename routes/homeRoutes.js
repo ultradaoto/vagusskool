@@ -46,4 +46,13 @@ router.get('/join', (req, res) => {
     });
 });
 
+router.get('/style', (req, res) => {
+    res.render('style', {
+        title: "Vagus Skool Style Direction - Modern Web Design Concept",
+        description: "Explore a modernized visual direction for Vagus Skool that builds on the existing purple-and-gold identity with refined layouts, glass surfaces, and elevated typography.",
+        imageUrl: "https://vagusskool.com/images/preview-image.jpg",
+        currentUrl: "https://vagusskool.com/style"
+    });
+});
+
 module.exports = router; 
