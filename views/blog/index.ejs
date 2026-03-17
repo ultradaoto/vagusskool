@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="container-custom py-8 md:py-16">
+            <header class="text-center mb-12 md:mb-16">
+                <h1 class="title font-cormorant text-5xl md:text-6xl text-accent-purple mb-4 font-medium">
+                    <%= typeof currentTag !== 'undefined' ? `Posts tagged "${currentTag}"` : 'Blog' %>
+                </h1>
+                <p class="subtitle font-cormorant text-xl md:text-2xl text-gold leading-tight max-w-2xl mx-auto">
+                    <%= typeof currentTag !== 'undefined' ? 'Browse articles in this category' : 'Insights on vagus nerve stimulation, breathing techniques, and optimal wellness' %>
+                </p>
+            </header>
+
+            <% if (tags && tags.length > 0) { %>
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <a href="/blog" class="px-4 py-2 rounded-full text-sm <%= typeof currentTag === 'undefined' ? 'bg-accent-purple text-white' : 'bg-gray-100 text-accent-purple hover:bg-gray-200' %> transition-colors">
+                    All
+                </a>
+                <% tags.forEach(tag => { %>
+                    <a href="/blog/tag/<%= tag %>" class="px-4 py-2 rounded-full text-sm <%= typeof currentTag !== 'undefined' && currentTag === tag ? 'bg-accent-purple text-white' : 'bg-gray-100 text-accent-purple hover:bg-gray-200' %> transition-colors">
+                        <%= tag %>
+                    </a>
+                <% }) %>
+            </div>
+            <% } %>
+
+            <% if (posts && posts.length > 0) { %>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <% posts.forEach(post => { %>
+                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                            <div class="p-6 flex-1 flex flex-col">
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <% post.tags.slice(0, 3).forEach(tag => { %>
+                                        <span class="text-xs px-2 py-1 bg-gold/20 text-accent-purple rounded-full"><%= tag %></span>
+                                    <% }) %>
+                                </div>
+                                <h2 class="font-cormorant text-2xl text-accent-purple mb-3 font-medium leading-tight">
+                                    <a href="/blog/<%= post.slug %>" class="hover:text-gold transition-colors"><%= post.title %></a>
+                                </h2>
+                                <p class="text-gray-600 text-sm mb-4 flex-1"><%= post.excerpt %></p>
+                                <div class="flex items-center justify-between text-sm text-gray-500 border-t pt-4 mt-auto">
+                                    <span>By <%= post.author %></span>
+                                    <span><%= new Date(post.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %></span>
+                                </div>
+                            </div>
+                        </article>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <div class="text-center py-16">
+                    <p class="text-gray-500 text-lg">No posts found.</p>
+                    <% if (typeof currentTag !== 'undefined') { %>
+                        <a href="/blog" class="inline-block mt-4 text-accent-purple hover:text-gold transition-colors">View all posts</a>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

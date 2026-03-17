@@ -12,7 +12,12 @@ app.use(express.json());
 
 // Routes
 const homeRoutes = require('./routes/homeRoutes');
+const blogRoutes = require('./routes/blogRoutes');
+const blogAdminRoutes = require('./routes/blogAdminRoutes');
+
 app.use('/', homeRoutes);
+app.use('/', blogRoutes);
+app.use('/', blogAdminRoutes);
 
 const PORT = process.env.PORT || 3100;
 app.listen(PORT, () => {

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="container-custom py-8 md:py-12">
+            <div class="mb-8">
+                <a href="/admin/blog" class="text-accent-purple hover:text-gold transition-colors flex items-center gap-2 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Back to Admin
+                </a>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <h1 class="title font-cormorant text-4xl text-accent-purple mb-8 font-medium">
+                    <%= isNew ? 'New Post' : 'Edit Post' %>
+                </h1>
+
+                <% if (typeof error !== 'undefined' && error) { %>
+                    <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+                        <%= error %>
+                    </div>
+                <% } %>
+
+                <form action="<%= isNew ? '/admin/blog/new' : `/admin/blog/edit/${post.id}` %>" method="POST" class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <div class="space-y-6">
+                        <!-- Title -->
+                        <div>
+                            <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title *</label>
+                            <input type="text" id="title" name="title" required
+                                value="<%= post?.title || '' %>"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent transition-all"
+                                placeholder="Enter post title">
+                        </div>
+
+                        <!-- Slug -->
+                        <div>
+                            <label for="slug" class="block text-sm font-medium text-gray-700 mb-2">
+                                Slug
+                                <span class="text-gray-400 font-normal">(URL-friendly identifier, auto-generated if empty)</span>
+                            </label>
+                            <input type="text" id="slug" name="slug"
+                                value="<%= post?.slug || '' %>"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent transition-all"
+                                placeholder="e.g., my-awesome-post">
+                        </div>
+
+                        <!-- Excerpt -->
+                        <div>
+                            <label for="excerpt" class="block text-sm font-medium text-gray-700 mb-2">
+                                Excerpt
+                                <span class="text-gray-400 font-normal">(Short summary for listings)</span>
+                            </label>
+                            <textarea id="excerpt" name="excerpt" rows="3"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent transition-all resize-none"
+                                placeholder="Brief description of the post"><%= post?.excerpt || '' %></textarea>
+                        </div>
+
+                        <!-- Content -->
+                        <div>
+                            <label for="content" class="block text-sm font-medium text-gray-700 mb-2">
+                                Content *
+                                <span class="text-gray-400 font-normal">(HTML supported)</span>
+                            </label>
+                            <textarea id="content" name="content" rows="15" required
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent transition-all font-mono text-sm"
+                                placeholder="<p>Your post content here...</p>"><%= post?.content || '' %></textarea>
+                            <p class="text-xs text-gray-500 mt-2">
+                                Tip: Use HTML tags like &lt;p&gt;, &lt;h2&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt; to format your content.
+                            </p>
+                        </div>
+
+                        <!-- Two Column Layout for Meta Fields -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Author -->
+                            <div>
+                                <label for="author" class="block text-sm font-medium text-gray-700 mb-2">Author</label>
+                                <input type="text" id="author" name="author"
+                                    value="<%= post?.author || 'Sterling Cooley' %>"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent transition-all">
+                            </div>
+
+                            <!-- Tags -->
+                            <div>
+                                <label for="tags" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Tags
+                                    <span class="text-gray-400 font-normal">(comma-separated)</span>
+                                </label>
+                                <input type="text" id="tags" name="tags"
+                                    value="<%= post?.tags ? post.tags.join(', ') : '' %>"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent transition-all"
+                                    placeholder="vagus-nerve, breathing, wellness">
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="border-t pt-6">
+                            <h3 class="text-sm font-medium text-gray-700 mb-4">Social Links</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="twitter" class="block text-sm text-gray-600 mb-2">Twitter URL</label>
+                                    <input type="url" id="twitter" name="twitter"
+                                        value="<%= post?.socialLinks?.twitter || '' %>"
+                                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent transition-all"
+                                        placeholder="https://twitter.com/...">
+                                </div>
+                                <div>
+                                    <label for="youtube" class="block text-sm text-gray-600 mb-2">YouTube URL</label>
+                                    <input type="url" id="youtube" name="youtube"
+                                        value="<%= post?.socialLinks?.youtube || '' %>"
+                                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent transition-all"
+                                        placeholder="https://youtube.com/...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Published Toggle -->
+                        <div class="border-t pt-6">
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" id="published" name="published"
+                                    <%= post?.published ? 'checked' : '' %>
+                                    class="w-5 h-5 text-accent-purple border-gray-300 rounded focus:ring-accent-purple">
+                                <span class="text-gray-700">Publish this post</span>
+                                <span class="text-sm text-gray-400">(Uncheck to save as draft)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="flex items-center gap-4 mt-8 pt-6 border-t">
+                        <button type="submit" class="golden-button">
+                            <%= isNew ? 'Create Post' : 'Save Changes' %>
+                        </button>
+                        <a href="/admin/blog" class="px-6 py-3 text-gray-600 hover:text-gray-800 transition-colors">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+
+    <script>
+        // Auto-generate slug from title
+        const titleInput = document.getElementById('title');
+        const slugInput = document.getElementById('slug');
+        
+        titleInput?.addEventListener('blur', () => {
+            if (!slugInput.value && titleInput.value) {
+                slugInput.value = titleInput.value
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/^-+|-+$/g, '');
+            }
+        });
+    </script>
+</body>
+</html>
