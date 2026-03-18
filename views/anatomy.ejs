@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <section class="container-custom py-10 md:py-16">
+            <div class="style-shell px-6 py-8 md:px-10 md:py-12">
+                <div class="pointer-events-none absolute inset-0">
+                    <div class="absolute left-[-2rem] top-12 h-52 w-52 rounded-full bg-accent-purple/15 blur-3xl"></div>
+                    <div class="absolute bottom-[-4rem] right-[-2rem] h-60 w-60 rounded-full bg-gold/20 blur-3xl"></div>
+                </div>
+
+                <div class="relative z-10 grid gap-8 xl:grid-cols-[0.9fr_1.1fr] xl:items-center">
+                    <div>
+                        <span class="style-kicker mb-6">Interactive anatomy explorer</span>
+                        <h1 class="font-cormorant text-5xl font-medium leading-[0.94] text-accent-purple md:text-7xl">
+                            Explore the vagus nerve in a rotatable 3D anatomy viewer.
+                        </h1>
+                        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-dark-text/85 md:text-xl">
+                            Use this 3D render to better understand one of the body's most important communication pathways and to help chart the route of the vagus nerve from the skull into the neck and beyond.
+                        </p>
+
+                        <div class="mt-8 flex flex-wrap gap-3">
+                            <span class="style-chip">Interactive 3D anatomy</span>
+                            <span class="style-chip">Rotatable model</span>
+                            <span class="style-chip">Vagus pathway study</span>
+                        </div>
+
+                        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                            <div class="style-metric">
+                                <p class="section-label">How to use it</p>
+                                <p class="mt-3 text-lg leading-relaxed text-dark-text/80">
+                                    Rotate, zoom, and inspect the model to orient yourself to where the nerve leaves the skull and how it relates to nearby structures in the upper neck.
+                                </p>
+                            </div>
+                            <div class="style-metric">
+                                <p class="section-label">Why it matters</p>
+                                <p class="mt-3 text-lg leading-relaxed text-dark-text/80">
+                                    Better anatomical orientation helps make discussions of stimulation points, pathways, and symptom patterns far easier to visualize.
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="mt-5 text-sm uppercase tracking-[0.24em] text-accent-purple/70">
+                            Embedded directly on the page for continuous study and reference.
+                        </p>
+                    </div>
+
+                    <div class="section-shell">
+                        <div class="relative h-0 w-full overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#02030a] pb-[56.25%] shadow-2xl ring-1 ring-white/10">
+                            <iframe
+                                title="Vagus Nerve (Cranial Nerve X)"
+                                src="https://sketchfab.com/models/706768a0c3bb413aac935c1ee1111cfb/embed?autospin=0.4&autostart=1&preload=1&transparent=1&ui_theme=dark&ui_infos=0&ui_watermark_link=0"
+                                class="absolute left-0 top-0 h-full w-full border-0"
+                                allowfullscreen
+                                mozallowfullscreen="true"
+                                webkitallowfullscreen="true"
+                                allow="autoplay; fullscreen; xr-spatial-tracking"
+                                frameborder="0"
+                            ></iframe>
+                        </div>
+                        <p class="mt-4 text-sm text-dark-text/70">
+                            3D model by
+                            <a href="https://sketchfab.com/ISMMS_students" target="_blank" rel="noopener noreferrer" class="text-accent-purple underline decoration-accent-purple/30 underline-offset-4 transition-colors hover:text-gold hover:decoration-gold">
+                                ISMMS_students via Sketchfab
+                            </a>.
+                        </p>
+                        <div class="mt-5 flex flex-wrap items-center gap-3">
+                            <span class="style-chip">Interactive embedded model</span>
+                            <span class="style-chip">Transparent background enabled</span>
+                            <span class="style-chip">Sketchfab dark UI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="mt-8 grid gap-6 lg:grid-cols-[1fr_1fr]">
+                <article class="section-shell">
+                    <p class="section-label">Orientation guide</p>
+                    <h2 class="mt-4 font-cormorant text-4xl text-accent-purple md:text-5xl">Use this render to trace a key upper vagus pathway.</h2>
+                    <p class="mt-5 text-lg leading-relaxed text-dark-text/82">
+                        As you rotate the model, focus on the point where the vagus nerve exits the skull through the jugular foramen and continues downward past the superior and inferior ganglia. This area is especially useful for anyone trying to build a clearer mental map of the upper cervical vagus pathway.
+                    </p>
+                </article>
+
+                <article class="section-shell">
+                    <p class="section-label">Study note</p>
+                    <h2 class="mt-4 font-cormorant text-4xl text-accent-purple md:text-5xl">Chart the route, then connect it to function.</h2>
+                    <p class="mt-5 text-lg leading-relaxed text-dark-text/82">
+                        This viewer is here to help people understand where the nerve sits in real space before thinking about regulation, stimulation, or symptom patterns. Once the pathway is easier to picture, the rest of the conversation becomes easier to follow.
+                    </p>
+                </article>
+            </section>
+
+            <section class="mt-8 grid gap-6 md:grid-cols-3">
+                <article class="section-shell">
+                    <p class="section-label">Superior Ganglion</p>
+                    <h3 class="mt-4 font-cormorant text-3xl text-accent-purple">Upper sensory swelling of the vagus nerve</h3>
+                    <p class="mt-4 text-lg leading-relaxed text-dark-text/82">
+                        The superior ganglion sits just below the jugular foramen and contains sensory neuron cell bodies associated with the vagus nerve. On the model, use it as one of the first major landmarks after the nerve exits the skull.
+                    </p>
+                </article>
+
+                <article class="section-shell">
+                    <p class="section-label">Inferior Ganglion</p>
+                    <h3 class="mt-4 font-cormorant text-3xl text-accent-purple">The larger nodose ganglion below</h3>
+                    <p class="mt-4 text-lg leading-relaxed text-dark-text/82">
+                        The inferior ganglion, often called the nodose ganglion, lies lower in the upper neck and is a major sensory relay point. It is a crucial structure to identify when charting the early descent of the vagus nerve from the skull base.
+                    </p>
+                </article>
+
+                <article class="section-shell">
+                    <p class="section-label">Jugular Foramen</p>
+                    <h3 class="mt-4 font-cormorant text-3xl text-accent-purple">The opening where the nerve exits the skull</h3>
+                    <p class="mt-4 text-lg leading-relaxed text-dark-text/82">
+                        The jugular foramen is the skull opening through which the vagus nerve leaves the cranial cavity. In this render, it is one of the most important orientation points for understanding where the nerve enters and exits the head-neck transition zone.
+                    </p>
+                </article>
+            </section>
+        </section>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

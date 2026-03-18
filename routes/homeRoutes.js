@@ -55,4 +55,13 @@ router.get('/style', (req, res) => {
     });
 });
 
+router.get('/anatomy', (req, res) => {
+    res.render('anatomy', {
+        title: "Vagus Skool Anatomy Concept - Interactive Vagus Model",
+        description: "Explore a hidden interactive anatomy page with an embedded Sketchfab vagus nerve model rendered directly inside the site.",
+        imageUrl: "https://vagusskool.com/images/preview-image.jpg",
+        currentUrl: "https://vagusskool.com/anatomy"
+    });
+});
+
 module.exports = router; 
