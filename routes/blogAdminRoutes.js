@@ -224,4 +224,152 @@ router.post('/admin/blog/delete/:id', (req, res) => {
     }
 });
 
+// Helper function to strip HTML tags
+function stripHtml(html) {
+    return html ? html.replace(/<[^>]*>/g, '') : '';
+}
+
+// POST /api/clickup/publish - Publish or update a blog post from ClickUp
+router.post('/api/clickup/publish', (req, res) => {
+    // Support both blogData wrapper and direct fields
+    const blogData = req.body.blogData || req.body;
+    const { title, content, doc_id, tags, status, blog_post_id, existing_slug } = blogData;
+    
+    // Validate required fields
+    if (!title || !content) {
+        return res.status(400).json({ 
+            success: false, 
+            error: 'Missing required fields: title and content are required' 
+        });
+    }
+    
+    const posts = getPosts();
+    const now = new Date().toISOString();
+    
+    // Generate excerpt from content (first 200 chars of stripped HTML)
+    const excerpt = stripHtml(content).substring(0, 200);
+    
+    // Process tags - ensure it's an array
+    let processedTags = [];
+    if (tags) {
+        if (Array.isArray(tags)) {
+            processedTags = tags.map(t => t.trim().toLowerCase()).filter(t => t);
+        } else if (typeof tags === 'string') {
+            processedTags = tags.split(',').map(t => t.trim().toLowerCase()).filter(t => t);
+        }
+    }
+    
+    let post;
+    
+    if (blog_post_id) {
+        // UPDATE existing post
+        const postIndex = posts.findIndex(p => p.id === blog_post_id);
+        
+        if (postIndex === -1) {
+            return res.status(404).json({ 
+                success: false, 
+                error: 'Post not found' 
+            });
+        }
+        
+        const existingPost = posts[postIndex];
+        const finalSlug = existing_slug || existingPost.slug || generateSlug(title);
+        
+        posts[postIndex] = {
+            ...existingPost,
+            slug: finalSlug,
+            title: title.trim(),
+            excerpt: excerpt,
+            content: content,
+            tags: processedTags,
+            published: true,
+            updatedAt: now
+        };
+        
+        post = posts[postIndex];
+    } else {
+        // CREATE new post
+        const finalSlug = existing_slug || generateSlug(title);
+        
+        // Check for duplicate slug
+        if (posts.some(p => p.slug === finalSlug)) {
+            return res.status(400).json({ 
+                success: false, 
+                error: 'A post with this slug already exists' 
+            });
+        }
+        
+        post = {
+            id: generateUUID(),
+            slug: finalSlug,
+            title: title.trim(),
+            excerpt: excerpt,
+            content: content,
+            author: 'Sterling Cooley',
+            tags: processedTags,
+            published: true,
+            createdAt: now,
+            updatedAt: now,
+            socialLinks: {
+                twitter: '',
+                youtube: ''
+            }
+        };
+        
+        posts.push(post);
+    }
+    
+    if (savePosts(posts)) {
+        res.json({
+            success: true,
+            post: {
+                id: post.id,
+                slug: post.slug,
+                title: post.title,
+                url: `https://vagusskool.com/blog/${post.slug}`
+            }
+        });
+    } else {
+        res.status(500).json({ 
+            success: false, 
+            error: 'Failed to save post' 
+        });
+    }
+});
+
+// DELETE /api/clickup/posts/:postId - Delete a blog post
+router.delete('/api/clickup/posts/:postId', (req, res) => {
+    const posts = getPosts();
+    const filteredPosts = posts.filter(p => p.id !== req.params.postId);
+    
+    if (filteredPosts.length === posts.length) {
+        return res.status(404).json({ 
+            success: false, 
+            error: 'Post not found' 
+        });
+    }
+    
+    if (savePosts(filteredPosts)) {
+        res.json({ success: true });
+    } else {
+        res.status(500).json({ 
+            success: false, 
+            error: 'Failed to delete post' 
+        });
+    }
+});
+
+// GET /api/clickup/destinations - List available publish destinations
+router.get('/api/clickup/destinations', (req, res) => {
+    res.json({
+        destinations: [
+            {
+                id: 'vagusskool-blog',
+                name: 'VagusSkool Blog',
+                url: 'https://vagusskool.com/blog'
+            }
+        ]
+    });
+});
+
 module.exports = router;
