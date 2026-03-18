@@ -79,7 +79,7 @@ The easiest way to manage posts is through the admin panel:
 
 ### Backup
 
-Remember to backup `data/posts.json` regularly as this is your blog's content database.
+Remember to backup `data/posts.json` regularly as this is your blog's content store.
 
 ```bash
 # Create a backup

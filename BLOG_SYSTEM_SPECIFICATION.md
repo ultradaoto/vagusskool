@@ -17,77 +17,32 @@ The blog system consists of:
 
 ---
 
-## 2. Database Schema
+## 2. Data Storage (JSON)
 
-### Tables
+Vagus Skool uses **JSON file storage** – no database required.
 
-**`blog_posts`** (main content table)
+**File**: `data/posts.json` – array of post objects.
 
-| Column | Type | Notes |
-|--------|------|-------|
-| id | UUID | Primary key, auto-generated |
-| title | VARCHAR(500) | Required |
-| slug | VARCHAR(500) | Unique, URL-friendly (e.g. `understanding-vagus-nerve`) |
-| content | TEXT | HTML content |
-| excerpt | TEXT | Short summary (~200 chars) |
-| featured_image | VARCHAR(500) | URL path, e.g. `/uploads/blog-images/xxx.png` |
-| meta_title | VARCHAR(70) | SEO title |
-| meta_description | VARCHAR(160) | SEO description |
-| meta_keywords | TEXT | Optional |
-| author_id | UUID | FK to `users.id` |
-| status | VARCHAR(50) | `draft`, `published`, `archived` |
-| published_at | TIMESTAMP | Null for drafts |
-| read_time_minutes | INTEGER | Optional, ~200 words/min |
-| subtitle | VARCHAR(500) | Optional |
-| created_at | TIMESTAMP | Auto |
-| updated_at | TIMESTAMP | Auto |
+**Post object structure**:
 
-**`categories`**
-
-| Column | Type |
-|--------|------|
-| id | UUID |
-| name | VARCHAR(100) |
-| slug | VARCHAR(100) UNIQUE |
-| description | TEXT |
-
-**`blog_post_categories`** (many-to-many)
-
-| Column | Type |
-|--------|------|
-| post_id | UUID → blog_posts.id |
-| category_id | UUID → categories.id |
-
-**`tags`**
-
-| Column | Type |
-|--------|------|
-| id | UUID |
-| name | VARCHAR(100) |
-| slug | VARCHAR(100) UNIQUE |
-
-**`blog_post_tags`** (many-to-many)
-
-| Column | Type |
-|--------|------|
-| post_id | UUID → blog_posts.id |
-| tag_id | UUID → tags.id |
-
-### View: `blog_posts_published`
-
-Used for public display; only published posts with author info:
-
-```sql
-CREATE OR REPLACE VIEW blog_posts_published AS
-SELECT 
-  bp.id, bp.title, bp.subtitle, bp.slug, bp.content, bp.excerpt,
-  bp.featured_image, bp.meta_title, bp.meta_description, bp.meta_keywords,
-  bp.status, bp.published_at, bp.created_at, bp.updated_at, bp.read_time_minutes,
-  COALESCE(u.first_name || ' ' || u.last_name, u.email, 'Anonymous') as author
-FROM blog_posts bp
-LEFT JOIN users u ON bp.author_id = u.id
-WHERE bp.status = 'published' AND bp.published_at IS NOT NULL;
-```
+| Field | Type | Notes |
+|-------|------|-------|
+| id | string | UUID, auto-generated |
+| slug | string | Unique, URL-friendly (e.g. `understanding-vagus-nerve`) |
+| title | string | Required |
+| content | string | HTML content |
+| excerpt | string | Short summary (~200 chars) |
+| featured_image | string | URL path, e.g. `/uploads/blog/image.jpg` |
+| meta_title | string | SEO title (max 70 chars) |
+| meta_description | string | SEO description (max 160 chars) |
+| author | string | Display name |
+| tags | string[] | e.g. `["vagus-nerve", "breathing"]` |
+| published | boolean | `true` = published, `false` = draft |
+| read_time_minutes | number | Optional, ~200 words/min |
+| subtitle | string | Optional |
+| createdAt | string | ISO timestamp |
+| updatedAt | string | ISO timestamp |
+| socialLinks | object | Reserved for future use |
 
 ---
 
@@ -249,11 +204,10 @@ Returns available blog destinations and categories:
 2. Server reads `req.body.blogData || req.body`.
 3. Validates `title` and `content`.
 4. Generates `slug` from title (or uses `existing_slug` for updates).
-5. Optionally generates featured image via Gemini (`generate_image: true`).
-6. Looks up `author_id` from `author_email` in `users`.
-7. Inserts into `blog_posts` (or updates if `blog_post_id` provided).
-8. Links categories via `blog_post_categories` (by `category_slugs`).
-9. Creates/links tags via `tags` and `blog_post_tags`.
+5. Optionally generates featured image via Gemini (`generate_image: true`) – not yet implemented.
+6. Uses `author_email` or `author` as display name.
+7. Reads `data/posts.json`, appends new post or updates existing by `blog_post_id`, writes back to file.
+8. Tags are stored as array on each post.
 
 ### Featured Image Generation (Optional)
 
@@ -267,33 +221,32 @@ Returns available blog destinations and categories:
 
 ## 6. How Content Is Displayed
 
-### Public Routes (`routes/public/blog.js`)
+### Public Routes (`routes/blogRoutes.js`)
 
 **`GET /blog`** – Index
 
-- Reads from `blog_posts_published`.
-- Pagination: 30 posts per page (`?page=1`).
-- Renders `views/public/blog.ejs` with `posts`, `currentPage`, `totalPages`, `totalPosts`.
+- Reads from `data/posts.json`, filters `published: true`, sorts by date.
+- Renders `views/blog/index.ejs` with `posts`, `tags`.
 
 **`GET /blog/:slug`** – Single post
 
-- Fetches from `blog_posts_published` by slug.
-- Loads related posts (same categories, or recent).
-- Renders `views/public/blog-post-page.ejs` with `post`, `relatedPosts`, `title`, `description`.
+- Fetches from `data/posts.json` by slug where `published: true`.
+- Loads related posts (same tags).
+- Renders `views/blog/post.ejs` with `post`, `relatedPosts`, `title`, `description`.
 
 ### View Data
 
-**Blog index** (`blog.ejs`)
+**Blog index** (`views/blog/index.ejs`)
 
 - `posts` – Array of published posts
-- `currentPage`, `totalPages`, `totalPosts` – Pagination
-- Each post: `id`, `title`, `subtitle`, `slug`, `excerpt`, `featured_image`, `published_at`, `author`, `read_time_minutes`
+- `tags` – All unique tags for filter pills
+- Each post: `id`, `title`, `subtitle`, `slug`, `excerpt`, `featured_image`, `author`, `createdAt`, `tags`
 
-**Blog post** (`blog-post-page.ejs`)
+**Blog post** (`views/blog/post.ejs`)
 
 - `post` – Full post object
-- `relatedPosts` – Up to 3 related posts
-- `title`, `description` – Meta
+- `relatedPosts` – Up to 3 related posts (same tags)
+- `title`, `description` – Meta for SEO
 
 ### SEO
 
@@ -333,13 +286,6 @@ Returns available blog destinations and categories:
 
 ### Route Mounting
 
-**Public server** (`server-public.js`):
-
-```javascript
-const blogRouter = require('./routes/public/blog');
-app.use('/blog', blogRouter);
-```
-
 **Vagus Skool** (`server.js`):
 
 ```javascript
@@ -357,18 +303,17 @@ app.use('/api/blog', blogApi);
 
 | Variable | Purpose |
 |----------|---------|
-| `VAGUSSKOOL_DATABASE_URL` | PostgreSQL connection string (not used – Vagus Skool uses JSON file storage) |
 | `BASE_URL` | Site base URL (default: https://vagusskool.com) |
 | `GEMINI_API_KEY` or `GOOGLE_API_KEY` | Optional, for AI image generation (not yet implemented) |
-| `SESSION_SECRET` | Admin session |
+| `SESSION_SECRET` | Admin session (if added) |
 
 ---
 
 ## 10. Vagus Skool Implementation
 
-Vagus Skool uses JSON file storage (`data/posts.json`) instead of PostgreSQL.
+Vagus Skool uses JSON file storage only – no database, no Supabase, no PostgreSQL.
 
-1. **Storage**: `data/posts.json` – no database required.
+1. **Storage**: `data/posts.json` – JSON file, no database required.
 2. **API**: `POST /api/blog/publish`, `DELETE /api/blog/posts/:postId`, `GET /api/blog/destinations`.
 3. **Public routes**: `GET /blog`, `GET /blog/:slug`, `GET /blog/tag/:tag`.
 4. **Admin**: `/admin/blog` (list), `/admin/blog/new`, `/admin/blog/edit/:id`, `POST /admin/blog/upload-image`.
