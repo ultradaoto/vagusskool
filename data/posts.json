@@ -11,9 +11,9 @@
       "health"
     ],
     "published": true,
-    "image": "/images/blog/understanding-vagus-nerve-stimulation.png",
     "createdAt": "2026-03-10T12:00:00.000Z",
-    "updatedAt": "2026-03-10T12:00:00.000Z"
+    "updatedAt": "2026-03-10T12:00:00.000Z",
+    "featured_image": "/images/blog/understanding-vagus-nerve-stimulation.png?v=16x9"
   },
   {
     "id": "1a591187-a435-4b06-a432-0f5d8cde5b7a",
@@ -27,9 +27,9 @@
       "techniques"
     ],
     "published": true,
-    "image": "/images/blog/ultra-breath-technique-guide.png",
     "createdAt": "2026-03-08T12:00:00.000Z",
-    "updatedAt": "2026-03-08T12:00:00.000Z"
+    "updatedAt": "2026-03-08T12:00:00.000Z",
+    "featured_image": "/images/blog/ultra-breath-technique-guide.png?v=16x9"
   },
   {
     "id": "dff367df-6a3c-45d3-a5fa-60f56d13b0f4",
@@ -43,9 +43,9 @@
       "therapy"
     ],
     "published": true,
-    "image": "/images/blog/ultrasound-vagus-nerve-therapy.png",
     "createdAt": "2026-03-05T12:00:00.000Z",
-    "updatedAt": "2026-03-05T12:00:00.000Z"
+    "updatedAt": "2026-03-05T12:00:00.000Z",
+    "featured_image": "/images/blog/ultrasound-vagus-nerve-therapy.png?v=16x9"
   },
   {
     "id": "329a3d9b-a193-495a-b175-1cf00288d4e1",
@@ -60,9 +60,9 @@
       "inflammation"
     ],
     "published": true,
-    "image": "/images/blog/the-cholinergic-anti-inflammatory-pathway.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/the-cholinergic-anti-inflammatory-pathway.png?v=16x9"
   },
   {
     "id": "de05b698-818a-4ad9-83d2-094f51ffb707",
@@ -77,9 +77,9 @@
       "hrv"
     ],
     "published": true,
-    "image": "/images/blog/heart-rate-variability.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/heart-rate-variability.png?v=16x9"
   },
   {
     "id": "de78f682-e1d9-4075-b9ae-02a0fb1e1850",
@@ -94,9 +94,9 @@
       "polyvagal"
     ],
     "published": true,
-    "image": "/images/blog/polyvagal-theory.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/polyvagal-theory.png?v=16x9"
   },
   {
     "id": "7c3a8b63-5dce-4ee2-a7a0-a37974a180cb",
@@ -111,9 +111,9 @@
       "gut-brain"
     ],
     "published": true,
-    "image": "/images/blog/vagus-nerve-gut-brain-axis.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/vagus-nerve-gut-brain-axis.png?v=16x9"
   },
   {
     "id": "4c446b37-b62a-4c49-bc3a-499517769c3d",
@@ -128,9 +128,9 @@
       "cold exposure"
     ],
     "published": true,
-    "image": "/images/blog/cold-exposure-dive-reflex.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/cold-exposure-dive-reflex.png?v=16x9"
   },
   {
     "id": "1fc7419a-8f2f-42ec-9d83-6500abdcdfa1",
@@ -145,9 +145,9 @@
       "breathing"
     ],
     "published": true,
-    "image": "/images/blog/deep-breathing-vagal-afferents.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/deep-breathing-vagal-afferents.png?v=16x9"
   },
   {
     "id": "09acb51a-169a-40aa-abc6-5f1c88cac130",
@@ -162,9 +162,9 @@
       "stimulation"
     ],
     "published": true,
-    "image": "/images/blog/auricular-vagus-nerve-stimulation.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/auricular-vagus-nerve-stimulation.png?v=16x9"
   },
   {
     "id": "7ee3a463-b9db-4461-80f8-8789ee762e5c",
@@ -179,9 +179,9 @@
       "neuroplasticity"
     ],
     "published": true,
-    "image": "/images/blog/vns-neuroplasticity.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/vns-neuroplasticity.png?v=16x9"
   },
   {
     "id": "3639ff97-5006-4a02-8ddb-797f8ece5449",
@@ -196,9 +196,9 @@
       "trauma"
     ],
     "published": true,
-    "image": "/images/blog/vagal-tone-trauma.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/vagal-tone-trauma.png?v=16x9"
   },
   {
     "id": "1e5fc21d-4522-4d59-ac70-a584dc1e7e50",
@@ -213,9 +213,9 @@
       "immunity"
     ],
     "published": true,
-    "image": "/images/blog/vagus-nerve-immune-regulation.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/vagus-nerve-immune-regulation.png?v=16x9"
   },
   {
     "id": "51d71d29-37d7-428c-b533-9b3f16f014be",
@@ -230,9 +230,9 @@
       "social connection"
     ],
     "published": true,
-    "image": "/images/blog/vagus-nerve-social-connection.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/vagus-nerve-social-connection.png?v=16x9"
   },
   {
     "id": "ead10db0-904a-412e-be61-16c09a368f39",
@@ -247,9 +247,9 @@
       "stimulation"
     ],
     "published": true,
-    "image": "/images/blog/transcutaneous-vagus-nerve-stimulation.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/transcutaneous-vagus-nerve-stimulation.png?v=16x9"
   },
   {
     "id": "7651ea22-3b2e-409e-986b-e1b29f084a5a",
@@ -264,9 +264,9 @@
       "longevity"
     ],
     "published": true,
-    "image": "/images/blog/vagal-tone-longevity.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/vagal-tone-longevity.png?v=16x9"
   },
   {
     "id": "dcca601e-cfcb-4fb7-91f1-373e68fd70d3",
@@ -281,9 +281,9 @@
       "microbiome"
     ],
     "published": true,
-    "image": "/images/blog/vagus-nerve-gut-microbiome.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/vagus-nerve-gut-microbiome.png?v=16x9"
   },
   {
     "id": "444aab11-14fa-43ad-bcfe-a905f99c6815",
@@ -298,8 +298,8 @@
       "sound therapy"
     ],
     "published": true,
-    "image": "/images/blog/sound-frequencies-vagus-resonance.png",
     "createdAt": "2026-03-19T02:00:00.000Z",
-    "updatedAt": "2026-03-19T02:00:00.000Z"
+    "updatedAt": "2026-03-19T02:00:00.000Z",
+    "featured_image": "/images/blog/sound-frequencies-vagus-resonance.png?v=16x9"
   }
 ]
