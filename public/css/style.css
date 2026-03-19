@@ -589,10 +589,10 @@ body {
 
 @media (min-width: 768px) {
   .site-header {
-    position: sticky;
-    top: 0px;
     padding-left: 2rem;
     padding-right: 2rem;
+    position: sticky;
+    top: 0;
   }
 }
 

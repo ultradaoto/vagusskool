@@ -14,7 +14,13 @@
   }
 
   .site-header {
-    @apply relative z-50 px-4 py-4 md:sticky md:top-0 md:px-8;
+    @apply relative z-50 px-4 py-4 md:px-8;
+  }
+  @media (min-width: 768px) {
+    .site-header {
+      position: sticky;
+      top: 0;
+    }
   }
 
   .site-nav {
