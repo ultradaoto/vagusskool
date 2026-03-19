@@ -579,8 +579,7 @@ body {
 }
 
 .site-header {
-  position: sticky;
-  top: 0px;
+  position: relative;
   z-index: 50;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -590,6 +589,8 @@ body {
 
 @media (min-width: 768px) {
   .site-header {
+    position: sticky;
+    top: 0px;
     padding-left: 2rem;
     padding-right: 2rem;
   }
@@ -1165,6 +1166,11 @@ body {
   margin-right: auto;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -1342,10 +1348,6 @@ body {
 
 .h-8 {
   height: 2rem;
-}
-
-.h-auto {
-  height: auto;
 }
 
 .h-full {
@@ -2349,7 +2351,8 @@ body {
 }
 
 @media (min-width: 768px) {
-  .md\:mb-12 {
+  .md\:my-12 {
+    margin-top: 3rem;
     margin-bottom: 3rem;
   }
 

@@ -14,7 +14,7 @@
   }
 
   .site-header {
-    @apply sticky top-0 z-50 px-4 py-4 md:px-8;
+    @apply relative z-50 px-4 py-4 md:sticky md:top-0 md:px-8;
   }
 
   .site-nav {

@@ -13,17 +13,17 @@
 
                 <div class="relative z-10">
                     <article class="max-w-4xl mx-auto">
-                        <header class="mb-8 md:mb-12">
+                        <header>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <% (post.tags || []).forEach(tag => { %>
                                     <a href="/blog/tag/<%= tag %>" class="blog-tag"><%= tag %></a>
                                 <% }) %>
                             </div>
-                            <h1 class="font-cormorant text-4xl md:text-6xl text-accent-purple mb-4 font-medium leading-tight"><%= post.title %></h1>
+                            <h1 class="font-cormorant text-4xl md:text-5xl text-accent-purple mb-4 font-medium leading-tight"><%= post.title %></h1>
                             <% if (post.subtitle) { %>
                                 <p class="font-cormorant text-xl md:text-2xl text-gold mb-5"><%= post.subtitle %></p>
                             <% } %>
-                            <div class="flex flex-wrap items-center gap-3 text-sm md:text-base text-dark-text/55 mb-8">
+                            <div class="flex flex-wrap items-center gap-3 text-sm md:text-base text-dark-text/55">
                                 <span>By <strong class="text-accent-purple"><%= post.author %></strong></span>
                                 <span>&bull;</span>
                                 <span><%= new Date(post.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></span>
@@ -32,14 +32,13 @@
                                     <span>Updated <%= new Date(post.updatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></span>
                                 <% } %>
                             </div>
-                            <% if (post.featured_image) { %>
-                                <div class="video-shell p-3">
-                                    <div class="overflow-hidden rounded-[1.25rem]">
-                                        <img src="<%= post.featured_image %>" alt="<%= post.title %>" class="w-full h-auto object-cover">
-                                    </div>
-                                </div>
-                            <% } %>
                         </header>
+
+                        <% if (post.featured_image) { %>
+                        <figure class="my-8 md:my-12">
+                            <img src="<%= post.featured_image %>" alt="<%= post.title %>" class="w-full rounded-xl shadow-lg" loading="lazy">
+                        </figure>
+                        <% } %>
 
                         <div class="section-shell !p-8 md:!p-10">
                             <div class="blog-prose">
