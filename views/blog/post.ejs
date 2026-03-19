@@ -4,68 +4,79 @@
 <body>
     <%- include('../partials/header') %>
     <main>
-        <div class="container-custom py-8 md:py-16">
-            <article class="max-w-3xl mx-auto">
-                <header class="mb-8 md:mb-12">
-                    <% if (post.featured_image) { %>
-                        <div class="mb-8 rounded-2xl overflow-hidden">
-                            <img src="<%= post.featured_image %>" alt="<%= post.title %>" class="w-full h-auto object-cover">
-                        </div>
-                    <% } %>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <% (post.tags || []).forEach(tag => { %>
-                            <a href="/blog/tag/<%= tag %>" class="text-sm px-3 py-1 bg-gold/20 text-accent-purple rounded-full hover:bg-gold/40 transition-colors"><%= tag %></a>
-                        <% }) %>
-                    </div>
-                    <h1 class="font-cormorant text-4xl md:text-5xl text-accent-purple mb-4 font-medium leading-tight"><%= post.title %></h1>
-                    <% if (post.subtitle) { %>
-                        <p class="font-cormorant text-xl text-gray-600 mb-4"><%= post.subtitle %></p>
-                    <% } %>
-                    <div class="flex items-center gap-4 text-gray-500 text-sm md:text-base">
-                        <span>By <strong class="text-accent-purple"><%= post.author %></strong></span>
-                        <span>&bull;</span>
-                        <span><%= new Date(post.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></span>
-                        <% if (post.updatedAt !== post.createdAt) { %>
-                            <span>&bull;</span>
-                            <span>Updated <%= new Date(post.updatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></span>
-                        <% } %>
-                    </div>
-                </header>
-
-                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-12">
-                    <%- post.content %>
+        <div class="container-custom py-10 md:py-16">
+            <section class="style-shell px-6 py-8 md:px-10 md:py-12">
+                <div class="pointer-events-none absolute inset-0">
+                    <div class="absolute left-[-2rem] top-10 h-44 w-44 rounded-full bg-accent-purple/12 blur-3xl"></div>
+                    <div class="absolute bottom-[-3rem] right-[-2rem] h-56 w-56 rounded-full bg-gold/18 blur-3xl"></div>
                 </div>
 
-                <div class="border-t pt-8">
-                    <a href="/blog" class="text-accent-purple hover:text-gold transition-colors flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-                        Back to all posts
-                    </a>
-                </div>
-            </article>
-
-            <% if (relatedPosts && relatedPosts.length > 0) { %>
-            <section class="mt-16 pt-12 border-t">
-                <h2 class="font-cormorant text-3xl text-accent-purple mb-8 font-medium text-center">Related Posts</h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <% relatedPosts.forEach(related => { %>
-                        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                            <div class="p-5">
-                                <div class="flex flex-wrap gap-1 mb-2">
-                                    <% (related.tags || []).slice(0, 2).forEach(tag => { %>
-                                        <span class="text-xs px-2 py-0.5 bg-gold/20 text-accent-purple rounded-full"><%= tag %></span>
-                                    <% }) %>
+                <div class="relative z-10">
+                    <article class="max-w-4xl mx-auto">
+                        <header class="mb-8 md:mb-12">
+                            <% if (post.featured_image) { %>
+                                <div class="video-shell p-3 mb-8">
+                                    <div class="overflow-hidden rounded-[1.25rem]">
+                                        <img src="<%= post.featured_image %>" alt="<%= post.title %>" class="w-full h-auto object-cover">
+                                    </div>
                                 </div>
-                                <h3 class="font-cormorant text-lg text-accent-purple mb-2 font-medium">
-                                    <a href="/blog/<%= related.slug %>" class="hover:text-gold transition-colors"><%= related.title %></a>
-                                </h3>
-                                <p class="text-gray-600 text-sm line-clamp-2"><%= related.excerpt %></p>
+                            <% } %>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <% (post.tags || []).forEach(tag => { %>
+                                    <a href="/blog/tag/<%= tag %>" class="blog-tag"><%= tag %></a>
+                                <% }) %>
                             </div>
-                        </article>
-                    <% }) %>
+                            <h1 class="font-cormorant text-4xl md:text-6xl text-accent-purple mb-4 font-medium leading-tight"><%= post.title %></h1>
+                            <% if (post.subtitle) { %>
+                                <p class="font-cormorant text-xl md:text-2xl text-gold mb-5"><%= post.subtitle %></p>
+                            <% } %>
+                            <div class="flex flex-wrap items-center gap-3 text-sm md:text-base text-dark-text/55">
+                                <span>By <strong class="text-accent-purple"><%= post.author %></strong></span>
+                                <span>&bull;</span>
+                                <span><%= new Date(post.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></span>
+                                <% if (post.updatedAt !== post.createdAt) { %>
+                                    <span>&bull;</span>
+                                    <span>Updated <%= new Date(post.updatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></span>
+                                <% } %>
+                            </div>
+                        </header>
+
+                        <div class="section-shell !p-8 md:!p-10">
+                            <div class="blog-prose">
+                                <%- post.content %>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 border-t border-accent-purple/10 pt-8">
+                            <a href="/blog" class="text-accent-purple hover:text-gold transition-colors flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                                Back to all posts
+                            </a>
+                        </div>
+                    </article>
+
+                    <% if (relatedPosts && relatedPosts.length > 0) { %>
+                    <section class="mt-16 pt-12 border-t border-accent-purple/10">
+                        <h2 class="font-cormorant text-3xl md:text-4xl text-accent-purple mb-8 font-medium text-center">Related Posts</h2>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <% relatedPosts.forEach(related => { %>
+                                <article class="style-panel">
+                                    <div class="flex flex-wrap gap-2 mb-3">
+                                        <% (related.tags || []).slice(0, 2).forEach(tag => { %>
+                                            <span class="style-chip !text-xs !px-2.5 !py-1"><%= tag %></span>
+                                        <% }) %>
+                                    </div>
+                                    <h3 class="font-cormorant text-xl text-accent-purple mb-3 font-medium">
+                                        <a href="/blog/<%= related.slug %>" class="hover:text-gold transition-colors"><%= related.title %></a>
+                                    </h3>
+                                    <p class="text-dark-text/70 text-sm md:text-base line-clamp-3"><%= related.excerpt %></p>
+                                </article>
+                            <% }) %>
+                        </div>
+                    </section>
+                    <% } %>
                 </div>
             </section>
-            <% } %>
         </div>
     </main>
     <%- include('../partials/footer') %>

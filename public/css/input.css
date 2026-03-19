@@ -66,6 +66,74 @@
     @apply overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/60 shadow-xl backdrop-blur-sm;
   }
 
+  .blog-tag {
+    @apply inline-flex items-center rounded-full border border-accent-purple/10 bg-accent-purple/5 px-3 py-1 text-sm text-accent-purple transition-colors duration-300 hover:border-gold/30 hover:text-gold;
+  }
+
+  .blog-tag-active {
+    @apply inline-flex items-center rounded-full border border-accent-purple bg-accent-purple px-3 py-1 text-sm text-white transition-colors duration-300;
+  }
+
+  .blog-prose {
+    @apply max-w-none text-lg leading-relaxed text-dark-text/85;
+  }
+
+  .blog-prose h1 {
+    @apply mt-10 mb-4 font-cormorant text-4xl font-medium leading-tight text-accent-purple;
+  }
+
+  .blog-prose h2 {
+    @apply mt-10 mb-4 font-cormorant text-3xl font-medium leading-tight text-accent-purple;
+  }
+
+  .blog-prose h3 {
+    @apply mt-8 mb-3 font-cormorant text-2xl font-medium leading-tight text-accent-purple;
+  }
+
+  .blog-prose p {
+    @apply mb-5;
+  }
+
+  .blog-prose a {
+    @apply text-accent-purple underline decoration-accent-purple/30 underline-offset-4 transition-colors duration-300 hover:text-gold hover:decoration-gold;
+  }
+
+  .blog-prose ul {
+    @apply my-5 list-disc space-y-2 pl-6;
+  }
+
+  .blog-prose ol {
+    @apply my-5 list-decimal space-y-2 pl-6;
+  }
+
+  .blog-prose li {
+    @apply pl-1;
+  }
+
+  .blog-prose blockquote {
+    @apply my-8 rounded-[1.5rem] border-l-4 border-gold bg-accent-purple/5 px-6 py-5 font-cormorant text-2xl leading-relaxed text-accent-purple;
+  }
+
+  .blog-prose pre {
+    @apply my-8 overflow-x-auto rounded-[1.5rem] border border-accent-purple/10 bg-white/85 px-5 py-4 text-sm leading-relaxed text-dark-text shadow-lg;
+  }
+
+  .blog-prose code {
+    @apply rounded bg-accent-purple/5 px-1.5 py-0.5 text-[0.95em] text-accent-purple;
+  }
+
+  .blog-prose pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  .blog-prose img {
+    @apply my-8 rounded-[1.5rem] shadow-xl;
+  }
+
+  .blog-prose hr {
+    @apply my-8 border-accent-purple/10;
+  }
+
   .site-footer {
     @apply mt-16 border-t border-white/30 bg-footer-gradient text-soft-white;
   }

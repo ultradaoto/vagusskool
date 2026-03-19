@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getPosts } = require('../lib/posts');
+const { getPosts, normalizePostContent } = require('../lib/posts');
 
 // GET /blog - List all published posts
 router.get('/blog', (req, res) => {
@@ -69,12 +69,17 @@ router.get('/blog/:slug', (req, res) => {
         ? (post.featured_image.startsWith('http') ? post.featured_image : `${baseUrl}${post.featured_image}`)
         : `${baseUrl}/images/preview-image.jpg`;
 
+    const normalizedPost = {
+        ...post,
+        content: normalizePostContent(post.content)
+    };
+
     res.render('blog/post', {
-        title: post.meta_title || `${post.title} - Vagus Skool Blog`,
-        description: post.meta_description || post.excerpt,
+        title: normalizedPost.meta_title || `${normalizedPost.title} - Vagus Skool Blog`,
+        description: normalizedPost.meta_description || normalizedPost.excerpt,
         imageUrl,
-        currentUrl: `${baseUrl}/blog/${post.slug}`,
-        post: post,
+        currentUrl: `${baseUrl}/blog/${normalizedPost.slug}`,
+        post: normalizedPost,
         relatedPosts: relatedPosts
     });
 });
