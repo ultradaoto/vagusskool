@@ -1286,6 +1286,10 @@ body {
   display: none;
 }
 
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
 .aspect-video {
   aspect-ratio: 16 / 9;
 }
@@ -1891,10 +1895,6 @@ body {
   padding-bottom: 2rem;
 }
 
-.pb-\[100\%\] {
-  padding-bottom: 100%;
-}
-
 .pb-\[56\.25\%\] {
   padding-bottom: 56.25%;
 }
@@ -2364,6 +2364,10 @@ body {
     margin-bottom: 3.5rem;
   }
 
+  .md\:aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
   .md\:w-auto {
     width: auto;
   }
@@ -2429,10 +2433,6 @@ body {
   .md\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
-  }
-
-  .md\:pb-\[56\.25\%\] {
-    padding-bottom: 56.25%;
   }
 
   .md\:text-left {
