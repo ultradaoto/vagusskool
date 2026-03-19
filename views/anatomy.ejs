@@ -48,7 +48,12 @@
                     </div>
 
                     <div class="section-shell">
-                        <div class="relative w-full overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#02030a] aspect-square md:aspect-video shadow-2xl ring-1 ring-white/10">
+                        <div class="sketchfab-wrapper relative w-full overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#02030a] shadow-2xl ring-1 ring-white/10" style="padding-bottom: 100%; height: 0;">
+                        <style>
+                            @media (min-width: 768px) {
+                                .sketchfab-wrapper { padding-bottom: 56.25% !important; }
+                            }
+                        </style>
                             <iframe
                                 title="Vagus Nerve (Cranial Nerve X)"
                                 src="https://sketchfab.com/models/706768a0c3bb413aac935c1ee1111cfb/embed?autospin=0.4&autostart=1&preload=1&transparent=1&ui_theme=dark&ui_infos=0&ui_watermark_link=0"
