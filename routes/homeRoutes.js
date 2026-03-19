@@ -19,15 +19,6 @@ router.get('/about', (req, res) => {
     });
 });
 
-router.get('/testimonials', (req, res) => {
-    res.render('testimonials', {
-        title: "Vagus Skool Success Stories - Transformative Experiences",
-        description: "Read and watch real testimonials from people who have transformed their lives through Vagus Skool's revolutionary vagus nerve stimulation techniques and breathing practices.",
-        imageUrl: "https://vagusskool.com/images/preview-image.jpg",
-        currentUrl: "https://vagusskool.com/testimonials"
-    });
-});
-
 router.get('/courses', (req, res) => {
     res.render('courses', {
         title: "Vagus Skool Courses - Comprehensive VNS Learning Paths",
