@@ -55,4 +55,13 @@ router.get('/anatomy', (req, res) => {
     });
 });
 
+router.get('/contact', (req, res) => {
+    res.render('contact', {
+        title: "Contact Vagus Skool - Ask a Question",
+        description: "Have a question about vagus nerve healing? Get in touch with our team and receive personalized recommendations for your journey.",
+        imageUrl: "https://vagusskool.com/images/preview-image.jpg",
+        currentUrl: "https://vagusskool.com/contact"
+    });
+});
+
 module.exports = router; 

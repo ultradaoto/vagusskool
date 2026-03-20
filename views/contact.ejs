@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <div class="container-custom py-10 md:py-16">
+            <section class="style-shell px-6 py-8 md:px-10 md:py-12">
+                <div class="pointer-events-none absolute inset-0">
+                    <div class="absolute left-[-2rem] top-12 h-48 w-48 rounded-full bg-accent-purple/12 blur-3xl"></div>
+                    <div class="absolute bottom-[-3rem] right-[-2rem] h-56 w-56 rounded-full bg-gold/20 blur-3xl"></div>
+                </div>
+
+                <div class="relative z-10 max-w-2xl mx-auto">
+                    <span class="style-kicker mb-6">Get in touch</span>
+                    <h1 class="title font-cormorant text-5xl text-accent-purple font-medium leading-[0.95] md:text-7xl">Ask a Question</h1>
+                    <p class="subtitle mt-4 font-cormorant text-2xl text-gold leading-tight md:text-3xl">We'd love to hear from you</p>
+
+                    <form id="contact-form" class="mt-8 space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-dark-text/70 mb-1.5">Name</label>
+                            <input type="text" name="name" required placeholder="Your name" class="contact-input" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-dark-text/70 mb-1.5">Email</label>
+                            <input type="email" name="email" required placeholder="you@example.com" class="contact-input" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-dark-text/70 mb-1.5">Question / Comment</label>
+                            <textarea name="question" required rows="5" placeholder="Ask us anything about vagus nerve healing..." class="contact-input resize-y"></textarea>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" name="subscribeNewsletter" id="subscribe-newsletter" class="mt-1 h-4 w-4 rounded border-dark-text/20 text-accent-purple focus:ring-accent-purple/50" />
+                            <label for="subscribe-newsletter" class="text-base text-dark-text/80 cursor-pointer">Yes, subscribe me to the Vagus Skool newsletter</label>
+                        </div>
+
+                        <div>
+                            <p class="text-sm font-medium text-dark-text/70 mb-3">I'm interested in:</p>
+                            <div class="interest-pills">
+                                <label class="interest-pill">
+                                    <input type="checkbox" name="interests" value="vagus-nerve" />
+                                    <span>Vagus Nerve</span>
+                                </label>
+                                <label class="interest-pill">
+                                    <input type="checkbox" name="interests" value="gut-health" />
+                                    <span>Gut Health</span>
+                                </label>
+                                <label class="interest-pill">
+                                    <input type="checkbox" name="interests" value="pain-management" />
+                                    <span>Pain Management</span>
+                                </label>
+                                <label class="interest-pill">
+                                    <input type="checkbox" name="interests" value="rheumatoid-arthritis" />
+                                    <span>Rheumatoid Arthritis</span>
+                                </label>
+                                <label class="interest-pill">
+                                    <input type="checkbox" name="interests" value="mental-health" />
+                                    <span>Mental Health</span>
+                                </label>
+                                <label class="interest-pill">
+                                    <input type="checkbox" name="interests" value="inflammation" />
+                                    <span>Inflammation</span>
+                                </label>
+                                <label class="interest-pill">
+                                    <input type="checkbox" name="interests" value="supplements" />
+                                    <span>Supplements</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="form-error" class="hidden rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-red-700 text-sm"></div>
+
+                        <button type="submit" class="golden-button w-full md:w-auto">
+                            Send Your Question
+                        </button>
+                    </form>
+
+                    <div id="success-message" class="hidden mt-8">
+                        <div class="style-panel bg-green-50 border-green-200">
+                            <p class="section-label text-green-700">Message sent</p>
+                            <p class="mt-4 text-lg leading-relaxed text-green-800">✓ Thank you! We'll get back to you soon. Check your email for helpful resources.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-8 section-shell text-center">
+                <p class="section-label">Join the community</p>
+                <h2 class="mt-4 font-cormorant text-4xl text-accent-purple md:text-5xl">Connect with others on the vagus nerve healing path.</h2>
+                <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-dark-text/80">
+                    Whether you have questions about practice, technique, or results — our community is here to support your journey.
+                </p>
+                <button id="cta-button" class="golden-button mt-8 w-full md:w-auto">
+                    Join Our Community Now
+                </button>
+                <p class="mt-4 text-sm text-accent-purple/85 md:text-base">Experience the power of vagus nerve healing today.</p>
+            </section>
+        </div>
+    </main>
+    <%- include('partials/footer') %>
+
+    <style>
+        .contact-input {
+            display: block;
+            width: 100%;
+            padding: 0.625rem 0.875rem;
+            border: 1px solid rgba(30, 20, 50, 0.15);
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            color: #2d2640;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: inherit;
+        }
+        .contact-input:focus {
+            outline: none;
+            border-color: rgba(128, 60, 200, 0.5);
+            box-shadow: 0 0 0 3px rgba(128, 60, 200, 0.1);
+        }
+        .contact-input::placeholder {
+            color: rgba(30, 20, 50, 0.35);
+        }
+
+        .interest-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .interest-pill {
+            cursor: pointer;
+            user-select: none;
+        }
+        .interest-pill input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .interest-pill span {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            border: 1px solid rgba(30, 20, 50, 0.15);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: rgba(30, 20, 50, 0.7);
+            background: rgba(255, 255, 255, 0.5);
+            transition: all 0.2s;
+        }
+        .interest-pill input:checked + span {
+            background: rgba(128, 60, 200, 0.12);
+            border-color: rgba(128, 60, 200, 0.4);
+            color: #6b21a8;
+            font-weight: 500;
+        }
+        .interest-pill:hover span {
+            border-color: rgba(128, 60, 200, 0.3);
+        }
+    </style>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const errorDiv = document.getElementById('form-error');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            errorDiv.classList.add('hidden');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const interests = Array.from(form.querySelectorAll('input[name="interests"]:checked')).map(cb => cb.value);
+
+            const payload = {
+                name: form.name.value.trim(),
+                email: form.email.value.trim(),
+                question: form.question.value.trim(),
+                subscribeNewsletter: form.querySelector('#subscribe-newsletter').checked,
+                interests: interests,
+                source: 'vagusskool.com'
+            };
+
+            try {
+                const res = await fetch('https://email.sterlingcooley.com/api/tracking/contact-form', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                    form.classList.add('hidden');
+                    document.getElementById('success-message').classList.remove('hidden');
+                } else {
+                    throw new Error(data.error || 'Something went wrong');
+                }
+            } catch (err) {
+                errorDiv.textContent = err.message || 'Failed to send. Please try again.';
+                errorDiv.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Your Question';
+            }
+        });
+    </script>
+</body>
+</html>
