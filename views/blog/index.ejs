@@ -41,7 +41,7 @@
                                 <article class="style-panel flex flex-col !p-0 overflow-hidden">
                                     <% if (post.featured_image) { %>
                                         <a href="/blog/<%= post.slug %>" class="block aspect-video overflow-hidden">
-                                            <img src="<%= post.featured_image %>" alt="<%= post.title %>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                                            <img src="<%= post.featured_image %>" alt="<%= post.title %>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.style.display='none'">
                                         </a>
                                     <% } %>
                                     <div class="p-6 md:p-7 flex-1 flex flex-col">
