@@ -1,4 +1,5 @@
 const express = require('express');
+const { generateFeaturedImage } = require("../lib/generateImage");
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
@@ -73,7 +74,7 @@ router.get('/admin/blog/new', (req, res) => {
 
 // POST /admin/blog/new - Create post
 router.post('/admin/blog/new', (req, res) => {
-    const { title, slug, excerpt, content, author, tags, published, subtitle, featured_image, meta_title, meta_description } = req.body;
+const { title, slug, excerpt, content, author, tags, published, subtitle, featured_image, meta_title, meta_description } = req.body;
 
     const posts = getPosts();
     const now = new Date().toISOString();
@@ -149,7 +150,7 @@ router.get('/admin/blog/edit/:id', (req, res) => {
 
 // POST /admin/blog/edit/:id - Update post
 router.post('/admin/blog/edit/:id', (req, res) => {
-    const { title, slug, excerpt, content, author, tags, published, subtitle, featured_image, meta_title, meta_description } = req.body;
+const { title, slug, excerpt, content, author, tags, published, subtitle, featured_image, meta_title, meta_description } = req.body;
 
     const posts = getPosts();
     const postIndex = posts.findIndex(p => p.id === req.params.id);
@@ -230,10 +231,10 @@ function stripHtml(html) {
 }
 
 // POST /api/clickup/publish - Publish or update a blog post from ClickUp
-router.post('/api/clickup/publish', (req, res) => {
+router.post('/api/clickup/publish', async (req, res) => {
     // Support both blogData wrapper and direct fields
     const blogData = req.body.blogData || req.body;
-    const { title, content, doc_id, tags, status, blog_post_id, existing_slug } = blogData;
+const { title, content, doc_id, tags, status, blog_post_id, existing_slug } = blogData;
     
     // Validate required fields
     if (!title || !content) {
@@ -320,6 +321,21 @@ router.post('/api/clickup/publish', (req, res) => {
     }
     
     if (savePosts(posts)) {
+        // Auto-generate featured image (fire-and-forget)
+        if (!post.featured_image) {
+            generateFeaturedImage(post).then(imagePath => {
+                if (imagePath) {
+                    const allPosts = getPosts();
+                    const idx = allPosts.findIndex(p => p.id === post.id);
+                    if (idx !== -1 && !allPosts[idx].featured_image) {
+                        allPosts[idx].featured_image = imagePath;
+                        savePosts(allPosts);
+                        console.log(`[ImageGen] Updated post ${post.slug} with image: ${imagePath}`);
+                    }
+                }
+            }).catch(err => console.error('[ImageGen] Error:', err.message));
+        }
+
         res.json({
             success: true,
             post: {

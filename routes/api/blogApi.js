@@ -1,4 +1,5 @@
 /**
+const { generateFeaturedImage } = require("../lib/generateImage");
  * Vagus Skool Blog API
  * Publish, update, delete posts via API for external tools (e.g. ClickUp, CMS).
  * Base path: /api/blog
@@ -31,7 +32,7 @@ function getBlogData(req) {
  * POST /api/blog/publish
  * Create or update a blog post.
  */
-router.post('/publish', (req, res) => {
+router.post('/publish', async (req, res) => {
     const data = getBlogData(req);
 
     const title = data.title?.trim();
@@ -120,6 +121,21 @@ router.post('/publish', (req, res) => {
 
     const savedPost = isUpdate ? posts.find(p => p.id === post.id) : postData;
     const postUrl = `${BASE_URL}/blog/${savedPost.slug}`;
+
+    // Auto-generate featured image (fire-and-forget)
+    if (!savedPost.featured_image) {
+        generateFeaturedImage(savedPost).then(imagePath => {
+            if (imagePath) {
+                const allPosts = getPosts();
+                const idx = allPosts.findIndex(p => p.id === savedPost.id);
+                if (idx !== -1 && !allPosts[idx].featured_image) {
+                    allPosts[idx].featured_image = imagePath;
+                    savePosts(allPosts);
+                    console.log(`[ImageGen] Updated post ${savedPost.slug} with image: ${imagePath}`);
+                }
+            }
+        }).catch(err => console.error('[ImageGen] Error:', err.message));
+    }
 
     return res.status(201).json({
         success: true,
